@@ -4,8 +4,6 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-export { default as AccountCreateForm } from "./AccountCreateForm";
-export { default as AccountUpdateForm } from "./AccountUpdateForm";
 export { default as BankCreateForm } from "./BankCreateForm";
 export { default as BankUpdateForm } from "./BankUpdateForm";
 export { default as ProfileCreateForm } from "./ProfileCreateForm";

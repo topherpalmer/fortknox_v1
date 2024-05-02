@@ -5,7 +5,8 @@
  **************************************************************************/
 
 import * as React from "react";
-import { GridProps } from "@aws-amplify/ui-react";
+import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { Profile } from "../models";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -21,17 +22,28 @@ export declare type ValidationResponse = {
     errorMessage?: string;
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
-export declare type ProfileUpdateFormInputValues = {};
-export declare type ProfileUpdateFormValidationValues = {};
+export declare type ProfileUpdateFormInputValues = {
+    type?: string;
+    name?: string;
+    businessName?: string;
+};
+export declare type ProfileUpdateFormValidationValues = {
+    type?: ValidationFunction<string>;
+    name?: ValidationFunction<string>;
+    businessName?: ValidationFunction<string>;
+};
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ProfileUpdateFormOverridesProps = {
     ProfileUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
+    type?: PrimitiveOverrideProps<TextFieldProps>;
+    name?: PrimitiveOverrideProps<TextFieldProps>;
+    businessName?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type ProfileUpdateFormProps = React.PropsWithChildren<{
     overrides?: ProfileUpdateFormOverridesProps | undefined | null;
 } & {
     id?: string;
-    profile?: any;
+    profile?: Profile;
     onSubmit?: (fields: ProfileUpdateFormInputValues) => ProfileUpdateFormInputValues;
     onSuccess?: (fields: ProfileUpdateFormInputValues) => void;
     onError?: (fields: ProfileUpdateFormInputValues, errorMessage: string) => void;
