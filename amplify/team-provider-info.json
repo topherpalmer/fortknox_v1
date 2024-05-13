@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "fortknoxv12f647ee9": {}
+      },
+      "api": {
+        "fortknoxv1": {}
       }
     }
   }

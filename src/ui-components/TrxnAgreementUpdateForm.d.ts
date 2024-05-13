@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { TrxnAgreement } from "../models";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -25,11 +26,19 @@ export declare type TrxnAgreementUpdateFormInputValues = {
     status?: string;
     txnAmount?: string;
     dateToSend?: string;
+    senderUserId?: string;
+    receiverUserId?: string;
+    senderUserName?: string;
+    receiverUserName?: string;
 };
 export declare type TrxnAgreementUpdateFormValidationValues = {
     status?: ValidationFunction<string>;
     txnAmount?: ValidationFunction<string>;
     dateToSend?: ValidationFunction<string>;
+    senderUserId?: ValidationFunction<string>;
+    receiverUserId?: ValidationFunction<string>;
+    senderUserName?: ValidationFunction<string>;
+    receiverUserName?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type TrxnAgreementUpdateFormOverridesProps = {
@@ -37,12 +46,16 @@ export declare type TrxnAgreementUpdateFormOverridesProps = {
     status?: PrimitiveOverrideProps<TextFieldProps>;
     txnAmount?: PrimitiveOverrideProps<TextFieldProps>;
     dateToSend?: PrimitiveOverrideProps<TextFieldProps>;
+    senderUserId?: PrimitiveOverrideProps<TextFieldProps>;
+    receiverUserId?: PrimitiveOverrideProps<TextFieldProps>;
+    senderUserName?: PrimitiveOverrideProps<TextFieldProps>;
+    receiverUserName?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type TrxnAgreementUpdateFormProps = React.PropsWithChildren<{
     overrides?: TrxnAgreementUpdateFormOverridesProps | undefined | null;
 } & {
     id?: string;
-    trxnAgreement?: any;
+    trxnAgreement?: TrxnAgreement;
     onSubmit?: (fields: TrxnAgreementUpdateFormInputValues) => TrxnAgreementUpdateFormInputValues;
     onSuccess?: (fields: TrxnAgreementUpdateFormInputValues) => void;
     onError?: (fields: TrxnAgreementUpdateFormInputValues, errorMessage: string) => void;

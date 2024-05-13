@@ -6,12 +6,10 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { Button, Flex, Grid } from "@aws-amplify/ui-react";
+import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import { Profile } from "../models";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
-import { generateClient } from "aws-amplify/api";
-import { getProfile } from "../graphql/queries";
-import { updateProfile } from "../graphql/mutations";
-const client = generateClient();
+import { DataStore } from "aws-amplify/datastore";
 export default function ProfileUpdateForm(props) {
   const {
     id: idProp,
@@ -24,31 +22,42 @@ export default function ProfileUpdateForm(props) {
     overrides,
     ...rest
   } = props;
-  const initialValues = {};
+  const initialValues = {
+    type: "",
+    name: "",
+    businessName: "",
+  };
+  const [type, setType] = React.useState(initialValues.type);
+  const [name, setName] = React.useState(initialValues.name);
+  const [businessName, setBusinessName] = React.useState(
+    initialValues.businessName
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = profileRecord
       ? { ...initialValues, ...profileRecord }
       : initialValues;
+    setType(cleanValues.type);
+    setName(cleanValues.name);
+    setBusinessName(cleanValues.businessName);
     setErrors({});
   };
   const [profileRecord, setProfileRecord] = React.useState(profileModelProp);
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
-        ? (
-            await client.graphql({
-              query: getProfile.replaceAll("__typename", ""),
-              variables: { id: idProp },
-            })
-          )?.data?.getProfile
+        ? await DataStore.query(Profile, idProp)
         : profileModelProp;
       setProfileRecord(record);
     };
     queryData();
   }, [idProp, profileModelProp]);
   React.useEffect(resetStateValues, [profileRecord]);
-  const validations = {};
+  const validations = {
+    type: [],
+    name: [],
+    businessName: [],
+  };
   const runValidationTasks = async (
     fieldName,
     currentValue,
@@ -74,7 +83,11 @@ export default function ProfileUpdateForm(props) {
       padding="20px"
       onSubmit={async (event) => {
         event.preventDefault();
-        let modelFields = {};
+        let modelFields = {
+          type,
+          name,
+          businessName,
+        };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
             if (Array.isArray(modelFields[fieldName])) {
@@ -103,28 +116,101 @@ export default function ProfileUpdateForm(props) {
               modelFields[key] = null;
             }
           });
-          await client.graphql({
-            query: updateProfile.replaceAll("__typename", ""),
-            variables: {
-              input: {
-                id: profileRecord.id,
-                ...modelFields,
-              },
-            },
-          });
+          await DataStore.save(
+            Profile.copyOf(profileRecord, (updated) => {
+              Object.assign(updated, modelFields);
+            })
+          );
           if (onSuccess) {
             onSuccess(modelFields);
           }
         } catch (err) {
           if (onError) {
-            const messages = err.errors.map((e) => e.message).join("\n");
-            onError(modelFields, messages);
+            onError(modelFields, err.message);
           }
         }
       }}
       {...getOverrideProps(overrides, "ProfileUpdateForm")}
       {...rest}
     >
+      <TextField
+        label="Type"
+        isRequired={false}
+        isReadOnly={false}
+        value={type}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              type: value,
+              name,
+              businessName,
+            };
+            const result = onChange(modelFields);
+            value = result?.type ?? value;
+          }
+          if (errors.type?.hasError) {
+            runValidationTasks("type", value);
+          }
+          setType(value);
+        }}
+        onBlur={() => runValidationTasks("type", type)}
+        errorMessage={errors.type?.errorMessage}
+        hasError={errors.type?.hasError}
+        {...getOverrideProps(overrides, "type")}
+      ></TextField>
+      <TextField
+        label="Name"
+        isRequired={false}
+        isReadOnly={false}
+        value={name}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              type,
+              name: value,
+              businessName,
+            };
+            const result = onChange(modelFields);
+            value = result?.name ?? value;
+          }
+          if (errors.name?.hasError) {
+            runValidationTasks("name", value);
+          }
+          setName(value);
+        }}
+        onBlur={() => runValidationTasks("name", name)}
+        errorMessage={errors.name?.errorMessage}
+        hasError={errors.name?.hasError}
+        {...getOverrideProps(overrides, "name")}
+      ></TextField>
+      <TextField
+        label="Business name"
+        isRequired={false}
+        isReadOnly={false}
+        value={businessName}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              type,
+              name,
+              businessName: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.businessName ?? value;
+          }
+          if (errors.businessName?.hasError) {
+            runValidationTasks("businessName", value);
+          }
+          setBusinessName(value);
+        }}
+        onBlur={() => runValidationTasks("businessName", businessName)}
+        errorMessage={errors.businessName?.errorMessage}
+        hasError={errors.businessName?.hasError}
+        {...getOverrideProps(overrides, "businessName")}
+      ></TextField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

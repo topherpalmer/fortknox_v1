@@ -7,10 +7,9 @@
 /* eslint-disable */
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import { TrxnAgreement } from "../models";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
-import { generateClient } from "aws-amplify/api";
-import { createTrxnAgreement } from "../graphql/mutations";
-const client = generateClient();
+import { DataStore } from "aws-amplify/datastore";
 export default function TrxnAgreementCreateForm(props) {
   const {
     clearOnSuccess = true,
@@ -26,21 +25,45 @@ export default function TrxnAgreementCreateForm(props) {
     status: "",
     txnAmount: "",
     dateToSend: "",
+    senderUserId: "",
+    receiverUserId: "",
+    senderUserName: "",
+    receiverUserName: "",
   };
   const [status, setStatus] = React.useState(initialValues.status);
   const [txnAmount, setTxnAmount] = React.useState(initialValues.txnAmount);
   const [dateToSend, setDateToSend] = React.useState(initialValues.dateToSend);
+  const [senderUserId, setSenderUserId] = React.useState(
+    initialValues.senderUserId
+  );
+  const [receiverUserId, setReceiverUserId] = React.useState(
+    initialValues.receiverUserId
+  );
+  const [senderUserName, setSenderUserName] = React.useState(
+    initialValues.senderUserName
+  );
+  const [receiverUserName, setReceiverUserName] = React.useState(
+    initialValues.receiverUserName
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setStatus(initialValues.status);
     setTxnAmount(initialValues.txnAmount);
     setDateToSend(initialValues.dateToSend);
+    setSenderUserId(initialValues.senderUserId);
+    setReceiverUserId(initialValues.receiverUserId);
+    setSenderUserName(initialValues.senderUserName);
+    setReceiverUserName(initialValues.receiverUserName);
     setErrors({});
   };
   const validations = {
     status: [],
     txnAmount: [],
     dateToSend: [],
+    senderUserId: [],
+    receiverUserId: [],
+    senderUserName: [],
+    receiverUserName: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -88,6 +111,10 @@ export default function TrxnAgreementCreateForm(props) {
           status,
           txnAmount,
           dateToSend,
+          senderUserId,
+          receiverUserId,
+          senderUserName,
+          receiverUserName,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -117,14 +144,7 @@ export default function TrxnAgreementCreateForm(props) {
               modelFields[key] = null;
             }
           });
-          await client.graphql({
-            query: createTrxnAgreement.replaceAll("__typename", ""),
-            variables: {
-              input: {
-                ...modelFields,
-              },
-            },
-          });
+          await DataStore.save(new TrxnAgreement(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
           }
@@ -133,8 +153,7 @@ export default function TrxnAgreementCreateForm(props) {
           }
         } catch (err) {
           if (onError) {
-            const messages = err.errors.map((e) => e.message).join("\n");
-            onError(modelFields, messages);
+            onError(modelFields, err.message);
           }
         }
       }}
@@ -153,6 +172,10 @@ export default function TrxnAgreementCreateForm(props) {
               status: value,
               txnAmount,
               dateToSend,
+              senderUserId,
+              receiverUserId,
+              senderUserName,
+              receiverUserName,
             };
             const result = onChange(modelFields);
             value = result?.status ?? value;
@@ -179,6 +202,10 @@ export default function TrxnAgreementCreateForm(props) {
               status,
               txnAmount: value,
               dateToSend,
+              senderUserId,
+              receiverUserId,
+              senderUserName,
+              receiverUserName,
             };
             const result = onChange(modelFields);
             value = result?.txnAmount ?? value;
@@ -207,6 +234,10 @@ export default function TrxnAgreementCreateForm(props) {
               status,
               txnAmount,
               dateToSend: value,
+              senderUserId,
+              receiverUserId,
+              senderUserName,
+              receiverUserName,
             };
             const result = onChange(modelFields);
             value = result?.dateToSend ?? value;
@@ -220,6 +251,126 @@ export default function TrxnAgreementCreateForm(props) {
         errorMessage={errors.dateToSend?.errorMessage}
         hasError={errors.dateToSend?.hasError}
         {...getOverrideProps(overrides, "dateToSend")}
+      ></TextField>
+      <TextField
+        label="Sender user id"
+        isRequired={false}
+        isReadOnly={false}
+        value={senderUserId}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              status,
+              txnAmount,
+              dateToSend,
+              senderUserId: value,
+              receiverUserId,
+              senderUserName,
+              receiverUserName,
+            };
+            const result = onChange(modelFields);
+            value = result?.senderUserId ?? value;
+          }
+          if (errors.senderUserId?.hasError) {
+            runValidationTasks("senderUserId", value);
+          }
+          setSenderUserId(value);
+        }}
+        onBlur={() => runValidationTasks("senderUserId", senderUserId)}
+        errorMessage={errors.senderUserId?.errorMessage}
+        hasError={errors.senderUserId?.hasError}
+        {...getOverrideProps(overrides, "senderUserId")}
+      ></TextField>
+      <TextField
+        label="Receiver user id"
+        isRequired={false}
+        isReadOnly={false}
+        value={receiverUserId}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              status,
+              txnAmount,
+              dateToSend,
+              senderUserId,
+              receiverUserId: value,
+              senderUserName,
+              receiverUserName,
+            };
+            const result = onChange(modelFields);
+            value = result?.receiverUserId ?? value;
+          }
+          if (errors.receiverUserId?.hasError) {
+            runValidationTasks("receiverUserId", value);
+          }
+          setReceiverUserId(value);
+        }}
+        onBlur={() => runValidationTasks("receiverUserId", receiverUserId)}
+        errorMessage={errors.receiverUserId?.errorMessage}
+        hasError={errors.receiverUserId?.hasError}
+        {...getOverrideProps(overrides, "receiverUserId")}
+      ></TextField>
+      <TextField
+        label="Sender user name"
+        isRequired={false}
+        isReadOnly={false}
+        value={senderUserName}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              status,
+              txnAmount,
+              dateToSend,
+              senderUserId,
+              receiverUserId,
+              senderUserName: value,
+              receiverUserName,
+            };
+            const result = onChange(modelFields);
+            value = result?.senderUserName ?? value;
+          }
+          if (errors.senderUserName?.hasError) {
+            runValidationTasks("senderUserName", value);
+          }
+          setSenderUserName(value);
+        }}
+        onBlur={() => runValidationTasks("senderUserName", senderUserName)}
+        errorMessage={errors.senderUserName?.errorMessage}
+        hasError={errors.senderUserName?.hasError}
+        {...getOverrideProps(overrides, "senderUserName")}
+      ></TextField>
+      <TextField
+        label="Receiver user name"
+        isRequired={false}
+        isReadOnly={false}
+        value={receiverUserName}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              status,
+              txnAmount,
+              dateToSend,
+              senderUserId,
+              receiverUserId,
+              senderUserName,
+              receiverUserName: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.receiverUserName ?? value;
+          }
+          if (errors.receiverUserName?.hasError) {
+            runValidationTasks("receiverUserName", value);
+          }
+          setReceiverUserName(value);
+        }}
+        onBlur={() => runValidationTasks("receiverUserName", receiverUserName)}
+        errorMessage={errors.receiverUserName?.errorMessage}
+        hasError={errors.receiverUserName?.hasError}
+        {...getOverrideProps(overrides, "receiverUserName")}
       ></TextField>
       <Flex
         justifyContent="space-between"
