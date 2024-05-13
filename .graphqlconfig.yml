@@ -1,6 +1,6 @@
 projects:
   fortknoxawsv1:
-    schemaPath: amplify/backend/api/fortknoxawsv1/build/schema.graphql
+    schemaPath: amplify/backend/api/fortknoxv1/build/schema.graphql
     includes:
       - src/graphql/**/*.js
     excludes:
