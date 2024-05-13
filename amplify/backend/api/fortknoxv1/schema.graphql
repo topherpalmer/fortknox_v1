@@ -1,4 +1,4 @@
-type User @model @auth(rules: [{allow: public}]) {
+type User @model @auth(rules: [{allow: public, provider:iam}]) {
   id: ID!
   type: String
   name: String
@@ -6,14 +6,14 @@ type User @model @auth(rules: [{allow: public}]) {
   status: String
   profile: Profile @hasOne
 }
-type Profile @model @auth(rules: [{allow: public}]) {
+type Profile @model @auth(rules: [{allow: public, provider:iam}]) {
   id: ID!
   type: String
   name: String
   businessName: String
   accounts: [Account] @hasMany(indexName: "byAccountForProfileById", fields: ["id"])
 }
-type Account @model @auth(rules: [{allow: public}]) {
+type Account @model @auth(rules: [{allow: public, provider:iam}]) {
   id: ID!
   routingNumber: String
   achNumber: String
@@ -26,12 +26,12 @@ type Account @model @auth(rules: [{allow: public}]) {
   associatedEmail: String
   address:Address @hasOne
 }
-type Bank @model @auth(rules: [{allow: public}]) {
+type Bank @model @auth(rules: [{allow: public, provider:iam}]) {
   id: ID!
   name: String
 }
 
-type TrxnAgreement @model @auth(rules: [{allow: public}]) {
+type TrxnAgreement @model @auth(rules: [{allow: public, provider:iam}]) {
   id: ID!
   status: String
   txnAmount: String
@@ -44,7 +44,7 @@ type TrxnAgreement @model @auth(rules: [{allow: public}]) {
   receiverUserName: String
 }
 
-type Address @model @auth(rules: [{allow: public}]) {
+type Address @model @auth(rules: [{allow: public, provider:iam}]) {
   id: ID!
   status: String
   addressLine1: String
