@@ -6,6 +6,7 @@
 
 import * as React from "react";
 import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
+import { Bank } from "../models";
 export declare type EscapeHatchProps = {
     [elementHierarchy: string]: Record<string, unknown>;
 } | null;
@@ -36,7 +37,7 @@ export declare type BankUpdateFormProps = React.PropsWithChildren<{
     overrides?: BankUpdateFormOverridesProps | undefined | null;
 } & {
     id?: string;
-    bank?: any;
+    bank?: Bank;
     onSubmit?: (fields: BankUpdateFormInputValues) => BankUpdateFormInputValues;
     onSuccess?: (fields: BankUpdateFormInputValues) => void;
     onError?: (fields: BankUpdateFormInputValues, errorMessage: string) => void;

@@ -1,0 +1,93 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify88584c988b074-staging-043f3-authRole",
+      "UnauthRoleArn": "arn:aws:iam::078918894010:role/amplify-amplify88584c988b074-staging-043f3-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::078918894010:role/amplify-amplify88584c988b074-staging-043f3-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify88584c988b074-staging-043f3-deployment",
+      "UnauthRoleName": "amplify-amplify88584c988b074-staging-043f3-unauthRole",
+      "StackName": "amplify-amplify88584c988b074-staging-043f3",
+      "StackId": "arn:aws:cloudformation:us-east-1:078918894010:stack/amplify-amplify88584c988b074-staging-043f3/c346bca0-fdcd-11ee-919b-0affcc921639",
+      "AmplifyAppId": "d1ybwg8ihtx11q"
+    }
+  },
+  "api": {
+    "fortknoxv1": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2025-04-18T22:08:16.275Z",
+              "apiKeyExpirationDays": 365,
+              "description": "firstAPIKeyV1"
+            },
+            "authenticationType": "API_KEY"
+          }
+        },
+        "GraphQLAPIIdOutput": "ev4sqovcxreyvoozoqyzpaxp2q",
+        "GraphQLAPIEndpointOutput": "https://lf4nxy4e5bfwfnpjqfuvgqg5cy.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-kbwcki4ft5etbkwcjsujvofxf4"
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2024-05-13T13:44:17.931Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify88584c988b074-staging-043f3-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apifortknoxv1"
+      },
+      "lastPushDirHash": "Xalx02kq3S94Bx6vmn0g6x9GynA="
+    }
+  },
+  "auth": {
+    "fortknoxv12f647ee9": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": [
+            "REQUIRES_LOWERCASE",
+            "REQUIRES_NUMBERS",
+            "REQUIRES_SYMBOLS",
+            "REQUIRES_UPPERCASE"
+          ]
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "output": {
+        "UserPoolId": "us-east-1_3SxK6rJMb",
+        "AppClientIDWeb": "2dt262drit05v2p7p4an47kj1d",
+        "AppClientID": "6ughoh7opl4ia8742ro9rcum2b",
+        "IdentityPoolId": "us-east-1:7871f50c-7bae-41ff-90d9-49f0356b262d",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:078918894010:userpool/us-east-1_3SxK6rJMb",
+        "IdentityPoolName": "fortknoxv12f647ee9_identitypool_2f647ee9__staging",
+        "UserPoolName": "fortknoxv12f647ee9_userpool_2f647ee9"
+      },
+      "lastPushTimeStamp": "2024-05-13T13:44:16.280Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify88584c988b074-staging-043f3-deployment/amplify-cfn-templates/auth/fortknoxv12f647ee9-cloudformation-template.json",
+        "logicalId": "authfortknoxv12f647ee9"
+      }
+    }
+  }
+}

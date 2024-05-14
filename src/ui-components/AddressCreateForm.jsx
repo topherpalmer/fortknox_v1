@@ -7,10 +7,10 @@
 /* eslint-disable */
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
-import { User } from "../models";
+import { Address } from "../models";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { DataStore } from "aws-amplify/datastore";
-export default function UserCreateForm(props) {
+export default function AddressCreateForm(props) {
   const {
     clearOnSuccess = true,
     onSuccess,
@@ -22,28 +22,40 @@ export default function UserCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    type: "",
-    name: "",
-    email: "",
     status: "",
+    addressLine1: "",
+    addressLine2: "",
+    city: "",
+    state: "",
+    zip: "",
   };
-  const [type, setType] = React.useState(initialValues.type);
-  const [name, setName] = React.useState(initialValues.name);
-  const [email, setEmail] = React.useState(initialValues.email);
   const [status, setStatus] = React.useState(initialValues.status);
+  const [addressLine1, setAddressLine1] = React.useState(
+    initialValues.addressLine1
+  );
+  const [addressLine2, setAddressLine2] = React.useState(
+    initialValues.addressLine2
+  );
+  const [city, setCity] = React.useState(initialValues.city);
+  const [state, setState] = React.useState(initialValues.state);
+  const [zip, setZip] = React.useState(initialValues.zip);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setType(initialValues.type);
-    setName(initialValues.name);
-    setEmail(initialValues.email);
     setStatus(initialValues.status);
+    setAddressLine1(initialValues.addressLine1);
+    setAddressLine2(initialValues.addressLine2);
+    setCity(initialValues.city);
+    setState(initialValues.state);
+    setZip(initialValues.zip);
     setErrors({});
   };
   const validations = {
-    type: [],
-    name: [],
-    email: [],
     status: [],
+    addressLine1: [],
+    addressLine2: [],
+    city: [],
+    state: [],
+    zip: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -71,10 +83,12 @@ export default function UserCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          type,
-          name,
-          email,
           status,
+          addressLine1,
+          addressLine2,
+          city,
+          state,
+          zip,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -104,7 +118,7 @@ export default function UserCreateForm(props) {
               modelFields[key] = null;
             }
           });
-          await DataStore.save(new User(modelFields));
+          await DataStore.save(new Address(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
           }
@@ -117,90 +131,9 @@ export default function UserCreateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "UserCreateForm")}
+      {...getOverrideProps(overrides, "AddressCreateForm")}
       {...rest}
     >
-      <TextField
-        label="Type"
-        isRequired={false}
-        isReadOnly={false}
-        value={type}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              type: value,
-              name,
-              email,
-              status,
-            };
-            const result = onChange(modelFields);
-            value = result?.type ?? value;
-          }
-          if (errors.type?.hasError) {
-            runValidationTasks("type", value);
-          }
-          setType(value);
-        }}
-        onBlur={() => runValidationTasks("type", type)}
-        errorMessage={errors.type?.errorMessage}
-        hasError={errors.type?.hasError}
-        {...getOverrideProps(overrides, "type")}
-      ></TextField>
-      <TextField
-        label="Name"
-        isRequired={false}
-        isReadOnly={false}
-        value={name}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              type,
-              name: value,
-              email,
-              status,
-            };
-            const result = onChange(modelFields);
-            value = result?.name ?? value;
-          }
-          if (errors.name?.hasError) {
-            runValidationTasks("name", value);
-          }
-          setName(value);
-        }}
-        onBlur={() => runValidationTasks("name", name)}
-        errorMessage={errors.name?.errorMessage}
-        hasError={errors.name?.hasError}
-        {...getOverrideProps(overrides, "name")}
-      ></TextField>
-      <TextField
-        label="Email"
-        isRequired={false}
-        isReadOnly={false}
-        value={email}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              type,
-              name,
-              email: value,
-              status,
-            };
-            const result = onChange(modelFields);
-            value = result?.email ?? value;
-          }
-          if (errors.email?.hasError) {
-            runValidationTasks("email", value);
-          }
-          setEmail(value);
-        }}
-        onBlur={() => runValidationTasks("email", email)}
-        errorMessage={errors.email?.errorMessage}
-        hasError={errors.email?.hasError}
-        {...getOverrideProps(overrides, "email")}
-      ></TextField>
       <TextField
         label="Status"
         isRequired={false}
@@ -210,10 +143,12 @@ export default function UserCreateForm(props) {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              type,
-              name,
-              email,
               status: value,
+              addressLine1,
+              addressLine2,
+              city,
+              state,
+              zip,
             };
             const result = onChange(modelFields);
             value = result?.status ?? value;
@@ -227,6 +162,151 @@ export default function UserCreateForm(props) {
         errorMessage={errors.status?.errorMessage}
         hasError={errors.status?.hasError}
         {...getOverrideProps(overrides, "status")}
+      ></TextField>
+      <TextField
+        label="Address line1"
+        isRequired={false}
+        isReadOnly={false}
+        value={addressLine1}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              status,
+              addressLine1: value,
+              addressLine2,
+              city,
+              state,
+              zip,
+            };
+            const result = onChange(modelFields);
+            value = result?.addressLine1 ?? value;
+          }
+          if (errors.addressLine1?.hasError) {
+            runValidationTasks("addressLine1", value);
+          }
+          setAddressLine1(value);
+        }}
+        onBlur={() => runValidationTasks("addressLine1", addressLine1)}
+        errorMessage={errors.addressLine1?.errorMessage}
+        hasError={errors.addressLine1?.hasError}
+        {...getOverrideProps(overrides, "addressLine1")}
+      ></TextField>
+      <TextField
+        label="Address line2"
+        isRequired={false}
+        isReadOnly={false}
+        value={addressLine2}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              status,
+              addressLine1,
+              addressLine2: value,
+              city,
+              state,
+              zip,
+            };
+            const result = onChange(modelFields);
+            value = result?.addressLine2 ?? value;
+          }
+          if (errors.addressLine2?.hasError) {
+            runValidationTasks("addressLine2", value);
+          }
+          setAddressLine2(value);
+        }}
+        onBlur={() => runValidationTasks("addressLine2", addressLine2)}
+        errorMessage={errors.addressLine2?.errorMessage}
+        hasError={errors.addressLine2?.hasError}
+        {...getOverrideProps(overrides, "addressLine2")}
+      ></TextField>
+      <TextField
+        label="City"
+        isRequired={false}
+        isReadOnly={false}
+        value={city}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              status,
+              addressLine1,
+              addressLine2,
+              city: value,
+              state,
+              zip,
+            };
+            const result = onChange(modelFields);
+            value = result?.city ?? value;
+          }
+          if (errors.city?.hasError) {
+            runValidationTasks("city", value);
+          }
+          setCity(value);
+        }}
+        onBlur={() => runValidationTasks("city", city)}
+        errorMessage={errors.city?.errorMessage}
+        hasError={errors.city?.hasError}
+        {...getOverrideProps(overrides, "city")}
+      ></TextField>
+      <TextField
+        label="State"
+        isRequired={false}
+        isReadOnly={false}
+        value={state}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              status,
+              addressLine1,
+              addressLine2,
+              city,
+              state: value,
+              zip,
+            };
+            const result = onChange(modelFields);
+            value = result?.state ?? value;
+          }
+          if (errors.state?.hasError) {
+            runValidationTasks("state", value);
+          }
+          setState(value);
+        }}
+        onBlur={() => runValidationTasks("state", state)}
+        errorMessage={errors.state?.errorMessage}
+        hasError={errors.state?.hasError}
+        {...getOverrideProps(overrides, "state")}
+      ></TextField>
+      <TextField
+        label="Zip"
+        isRequired={false}
+        isReadOnly={false}
+        value={zip}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              status,
+              addressLine1,
+              addressLine2,
+              city,
+              state,
+              zip: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.zip ?? value;
+          }
+          if (errors.zip?.hasError) {
+            runValidationTasks("zip", value);
+          }
+          setZip(value);
+        }}
+        onBlur={() => runValidationTasks("zip", zip)}
+        errorMessage={errors.zip?.errorMessage}
+        hasError={errors.zip?.hasError}
+        {...getOverrideProps(overrides, "zip")}
       ></TextField>
       <Flex
         justifyContent="space-between"

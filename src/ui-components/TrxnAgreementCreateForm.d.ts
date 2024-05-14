@@ -25,11 +25,19 @@ export declare type TrxnAgreementCreateFormInputValues = {
     status?: string;
     txnAmount?: string;
     dateToSend?: string;
+    senderUserId?: string;
+    receiverUserId?: string;
+    senderUserName?: string;
+    receiverUserName?: string;
 };
 export declare type TrxnAgreementCreateFormValidationValues = {
     status?: ValidationFunction<string>;
     txnAmount?: ValidationFunction<string>;
     dateToSend?: ValidationFunction<string>;
+    senderUserId?: ValidationFunction<string>;
+    receiverUserId?: ValidationFunction<string>;
+    senderUserName?: ValidationFunction<string>;
+    receiverUserName?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type TrxnAgreementCreateFormOverridesProps = {
@@ -37,6 +45,10 @@ export declare type TrxnAgreementCreateFormOverridesProps = {
     status?: PrimitiveOverrideProps<TextFieldProps>;
     txnAmount?: PrimitiveOverrideProps<TextFieldProps>;
     dateToSend?: PrimitiveOverrideProps<TextFieldProps>;
+    senderUserId?: PrimitiveOverrideProps<TextFieldProps>;
+    receiverUserId?: PrimitiveOverrideProps<TextFieldProps>;
+    senderUserName?: PrimitiveOverrideProps<TextFieldProps>;
+    receiverUserName?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type TrxnAgreementCreateFormProps = React.PropsWithChildren<{
     overrides?: TrxnAgreementCreateFormOverridesProps | undefined | null;

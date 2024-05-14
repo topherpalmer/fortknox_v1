@@ -7,10 +7,9 @@
 /* eslint-disable */
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
+import { Bank } from "../models";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
-import { generateClient } from "aws-amplify/api";
-import { createBank } from "../graphql/mutations";
-const client = generateClient();
+import { DataStore } from "aws-amplify/datastore";
 export default function BankCreateForm(props) {
   const {
     clearOnSuccess = true,
@@ -90,14 +89,7 @@ export default function BankCreateForm(props) {
               modelFields[key] = null;
             }
           });
-          await client.graphql({
-            query: createBank.replaceAll("__typename", ""),
-            variables: {
-              input: {
-                ...modelFields,
-              },
-            },
-          });
+          await DataStore.save(new Bank(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
           }
@@ -106,8 +98,7 @@ export default function BankCreateForm(props) {
           }
         } catch (err) {
           if (onError) {
-            const messages = err.errors.map((e) => e.message).join("\n");
-            onError(modelFields, messages);
+            onError(modelFields, err.message);
           }
         }
       }}
