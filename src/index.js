@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 import { RetoolApp } from 'retool-react';
 import reportWebVitals from './reportWebVitals';
-import { Amplify } from 'aws-amplify';
-import config from './aws-exports';
+
 Amplify.configure(config);
 
 
