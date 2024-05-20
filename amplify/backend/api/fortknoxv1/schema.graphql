@@ -1,0 +1,61 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+#input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+#⚠️  WARNING: your GraphQL API currently allows public create, read, update, and delete access to all models via an API Key. To configure PRODUCTION-READY authorization rules, review: https://docs.amplify.aws/cli/graphql/authorization-rules
+# AmplifyAdmin
+
+type User @model @auth(rules: [{ allow: groups, groups: ["AmplifyAdmin"] }]) {
+  id: ID!
+  type: String
+  name: String
+  email: String
+  status: String
+  profile: Profile @hasOne
+}
+type Profile @model @auth(rules: [{ allow: groups, groups: ["AmplifyAdmin"] }]) {
+  id: ID!
+  type: String
+  name: String
+  businessName: String
+  accounts: [Account] @hasMany(indexName: "byAccountForProfileById", fields: ["id"])
+}
+type Account @model @auth(rules: [{ allow: groups, groups: ["AmplifyAdmin"] }]) {
+  id: ID!
+  routingNumber: String
+  achNumber: String
+  accountNumber: String
+  name: String
+  bankName: String
+  bank: Bank @hasOne
+  profileId: ID! @index(name: "byAccountForProfileById")
+  status: String
+  associatedEmail: String
+  address:Address @hasOne
+}
+type Bank @model @auth(rules: [{ allow: groups, groups: ["AmplifyAdmin"] }]) {
+  id: ID!
+  name: String
+}
+
+type TrxnAgreement @model @auth(rules: [{ allow: groups, groups: ["AmplifyAdmin"] }]) {
+  id: ID!
+  status: String
+  txnAmount: String
+  dateToSend: AWSDateTime
+  senderProfileAccount: Account @hasOne
+  receiverProfileAccount: Account @hasOne
+  senderUserId: ID
+  receiverUserId: ID
+  senderUserName: String
+  receiverUserName: String
+}
+
+type Address @model @auth(rules: [{ allow: groups, groups: ["AmplifyAdmin"] }]) {
+  id: ID!
+  status: String
+  addressLine1: String
+  addressLine2: String
+  city: String
+  state: String
+  zip: String
+}
