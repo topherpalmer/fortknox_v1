@@ -22,7 +22,7 @@ function App({ signOut }) {
     switch (payload.event) {
       case 'signedIn':
         console.log('user has been signedIn successfully.');
-/* 
+
         const {data} = axios.post('https:fkdev.cdibs.com//api/embed-url/external-user', 
                                 {landingPageUuid:'a0a66088-0bce-11ef-b20a-e31e0df5da24', 
                                 groupIds:['3117369'], 
@@ -39,9 +39,9 @@ function App({ signOut }) {
                                     'Authorization': 'Bearer retool_01hz5h90k9vxt4pq52epstwvzr'
                                   }
                                 }
-      ) 
+      )
 
-          console.log(data)*/
+          console.log(data)
       case 'signedOut':
         console.log('user have been signedOut successfully.');
         break;
