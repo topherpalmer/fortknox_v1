@@ -8,11 +8,11 @@ import {
   View,
   Card,
 } from "@aws-amplify/ui-react";
-import axios from 'axios';
-import Retool from 'react-retool';
+//import axios from 'axios';
+import Retool from 'react-retool';//
 import { Hub } from 'aws-amplify/utils';
-import React, { useStat, useEffect } from 'react';
-import {post, get} from "aws-amplify"
+import React, { useState, useEffect } from 'react';
+import { post, get } from 'aws-amplify/api';
 
 
 function App({ signOut }) {

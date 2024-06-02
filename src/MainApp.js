@@ -1,14 +1,24 @@
-import React, { Component, useEffect, useState } from "react";
-import { generateClient, get, post } from 'aws-amplify/api';
-
-
+import logo from "./logo.svg";
+import "@aws-amplify/ui-react/styles.css";
+import {
+  withAuthenticator,
+  Button,
+  Heading,
+  Image,
+  View,
+  Card,
+} from "@aws-amplify/ui-react";
+//import axios from 'axios';
+import Retool from 'react-retool';//
+import { Hub } from 'aws-amplify/utils';
+import React, { useStat, useEffect } from 'react';
+import { post, get } from 'aws-amplify/api';
 
 const image = {uri: '/images/MyFortKnox_FlyerDraft.png'};
 
 
-function App() {
+function App({signOut}) {
 
-  const client = generateClient();
 
   async function callEmbed()  {
     try {
@@ -51,14 +61,17 @@ function App() {
       a
     }*/
     return (
-
-      <div >
-        <h1>GeeksForGeeks</h1>
-      </div>
+      <View className="App">
+        <Card>
+          <Image src={logo} className="App-logo" alt="logo" />
+          <Heading level={1}>We now have Auth!</Heading>
+        </Card>
+        <Button onClick={signOut}>Sign Out</Button>
+      </View>
     );
 }
 
-export default App
+export default withAuthenticator(App)
 
 /*import React, { Component } from "react";
 

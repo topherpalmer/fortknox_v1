@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Amplify } from 'aws-amplify';
 import config from './aws-exports';
 import MainApp from './MainApp';
+import RetoolApp from './RetoolApp';
 
 
 Amplify.configure(config);
@@ -14,7 +15,7 @@ Amplify.configure(config);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RetoolApp />
+    <RetoolApp/>
   </React.StrictMode>
 );
 
