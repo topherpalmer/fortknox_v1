@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/embed": {
+      "name": "/embed",
+      "lambdaFunction": "retoolEmbedFunction",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

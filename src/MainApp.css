@@ -1,0 +1,12 @@
+.MainApp {
+  text-align: center;
+
+  background-color: rgb(15, 9, 22);
+background-image: url('/images/MyFortKnox_FlyerDraft');
+background-position: center;
+background-repeat: no-repeat;
+}
+
+.MainApp-logo {
+
+}

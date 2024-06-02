@@ -1,0 +1,34 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-fortknox-dev-ee77d-authRole",
+      "UnauthRoleArn": "arn:aws:iam::078918894010:role/amplify-fortknox-dev-ee77d-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::078918894010:role/amplify-fortknox-dev-ee77d-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-fortknox-dev-ee77d-deployment",
+      "UnauthRoleName": "amplify-fortknox-dev-ee77d-unauthRole",
+      "StackName": "amplify-fortknox-dev-ee77d",
+      "StackId": "arn:aws:cloudformation:us-east-1:078918894010:stack/amplify-fortknox-dev-ee77d/fe308940-16ff-11ef-a398-127845d089bd",
+      "AmplifyAppId": "d3uds6m5l6un0g"
+    },
+    "categories": {
+      "auth": {
+        "fortknox7dc461c3": {}
+      },
+      "api": {
+        "fortknox": {},
+        "fortknoxrestapi": {}
+      },
+      "function": {
+        "fortknox6d110471": {
+          "deploymentBucketName": "amplify-fortknox-dev-ee77d-deployment",
+          "s3Key": "amplify-builds/fortknox6d110471-4368564f353165593977-build.zip"
+        },
+        "retoolEmbedFunction": {
+          "deploymentBucketName": "amplify-fortknox-dev-ee77d-deployment",
+          "s3Key": "amplify-builds/retoolEmbedFunction-57724a59507559544e64-build.zip"
+        }
+      }
+    }
+  }
+}
