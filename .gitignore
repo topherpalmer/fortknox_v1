@@ -43,3 +43,4 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+amplify/backend/backend-config 2.json

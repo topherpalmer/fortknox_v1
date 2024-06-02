@@ -40,6 +40,14 @@
           ],
           "category": "function",
           "resourceName": "retoolEmbedFunction"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "retoolEmbedV2"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -84,6 +92,12 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "retoolEmbedV2": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -116,6 +130,22 @@
         {
           "category": "function",
           "resourceName": "retoolEmbedFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_retoolEmbedV2_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "retoolEmbedV2"
+        }
+      ]
+    },
+    "AMPLIFY_function_retoolEmbedV2_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "retoolEmbedV2"
         }
       ]
     }

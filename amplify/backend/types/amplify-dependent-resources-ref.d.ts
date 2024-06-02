@@ -1,10 +1,5 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "fortknox": {
-      "GraphQLAPIEndpointOutput": "string",
-      "GraphQLAPIIdOutput": "string",
-      "GraphQLAPIKeyOutput": "string"
-    },
     "fortknoxrestapi": {
       "ApiId": "string",
       "ApiName": "string",
@@ -33,6 +28,13 @@ export type AmplifyDependentResourcesAttributes = {
       "Region": "string"
     },
     "retoolEmbedFunction": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "retoolEmbedV2": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

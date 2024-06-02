@@ -7,6 +7,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/embedV2": {
+      "name": "/embedV2",
+      "lambdaFunction": "retoolEmbedV2",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

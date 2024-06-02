@@ -21,21 +21,21 @@ function App({ signOut }) {
   const [isSignedIn, setIsSignedIn] = useState(0);
   async function callEmbed()  {
     try {
-      const restOperation = post({
+      const restOperation = get({
         //src: "https://syo089epz5.execute-api.us-east-1.amazonaws.com/embed"
         apiName: 'fortknoxrestapi',
-        path: '/embed',
-        options: { 
-          body: {
-            message: 'Mow the lawn'
-          } 
-        }
+        path: '/item'
+        // options: { 
+        //   body: {
+        //     message: 'Mow the lawn'
+        //   } 
+        // }
       }); 
       const { body } = await restOperation.response;
-      const response = await body.json();
+      //const response = await body.json();
 
       console.log('GET call succeeded');
-      console.log(response);
+      console.log(body);
     } catch (e) {
       console.log('/embed GET call failed: ', JSON.parse(e.response.body));
     }

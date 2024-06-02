@@ -1,0 +1,181 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-fortknox-dev-ee77d-authRole",
+      "UnauthRoleArn": "arn:aws:iam::078918894010:role/amplify-fortknox-dev-ee77d-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::078918894010:role/amplify-fortknox-dev-ee77d-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-fortknox-dev-ee77d-deployment",
+      "UnauthRoleName": "amplify-fortknox-dev-ee77d-unauthRole",
+      "StackName": "amplify-fortknox-dev-ee77d",
+      "StackId": "arn:aws:cloudformation:us-east-1:078918894010:stack/amplify-fortknox-dev-ee77d/fe308940-16ff-11ef-a398-127845d089bd",
+      "AmplifyAppId": "d3uds6m5l6un0g"
+    }
+  },
+  "api": {
+    "fortknox": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "fortknox7dc461c3",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 7
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authfortknox7dc461c3"
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "evbp4k65wfh5zfvzteke36k6im",
+        "GraphQLAPIEndpointOutput": "https://s2rf4ly67vgrjjbpotgefwkrki.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-y57jeyw7evb2zckzxoz77bb2z4"
+      },
+      "lastPushTimeStamp": "2024-06-01T20:32:13.525Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknox-dev-ee77d-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apifortknox"
+      },
+      "lastPushDirHash": "xsutwfPRU1ASIMc9tV8alMQQoG8="
+    },
+    "fortknoxrestapi": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "retoolEmbedFunction",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknox-dev-ee77d-deployment/amplify-cfn-templates/api/fortknoxrestapi-cloudformation-template.json",
+        "logicalId": "apifortknoxrestapi"
+      },
+      "lastPushTimeStamp": "2024-06-01T20:32:13.529Z",
+      "output": {
+        "ApiName": "fortknoxrestapi",
+        "RootUrl": "https://syo089epz5.execute-api.us-east-1.amazonaws.com/dev",
+        "ApiId": "syo089epz5"
+      },
+      "lastPushDirHash": "ObmMWQ48djHizXBwCwNs98p+M78="
+    }
+  },
+  "auth": {
+    "fortknox7dc461c3": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknox-dev-ee77d-deployment/amplify-cfn-templates/auth/fortknox7dc461c3-cloudformation-template.json",
+        "logicalId": "authfortknox7dc461c3"
+      },
+      "lastPushTimeStamp": "2024-06-01T20:32:13.530Z",
+      "output": {
+        "UserPoolId": "us-east-1_1OrM9Qbwo",
+        "AppClientIDWeb": "5m627c2qac2n674h9mpuhdujtq",
+        "AppClientID": "6ut6ahhucoa8spo5l51g43et7n",
+        "HostedUIDomain": "fortknox7dc461c3-7dc461c3-dev",
+        "IdentityPoolId": "us-east-1:aefcf624-b0ae-44a9-a78e-38063509ae8b",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:078918894010:userpool/us-east-1_1OrM9Qbwo",
+        "IdentityPoolName": "fortknox7dc461c3_identitypool_7dc461c3__dev",
+        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://www.undefeatedsoftware.com/federated/fortknox/signinRedirect/\"],\"LogoutURLs\":[\"https://www.undefeatedsoftware.com/federated/fortknox/signoutRedirect/\"]}",
+        "UserPoolName": "fortknox7dc461c3_userpool_7dc461c3"
+      },
+      "lastPushDirHash": "GPiaiPaoblOGjleWg8Tw+kxaTng="
+    }
+  },
+  "function": {
+    "fortknox6d110471": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2024-06-01T16:58:18.752Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2024-06-01T16:58:18.838Z",
+      "distZipFilename": "fortknox6d110471-4368564f353165593977-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-fortknox-dev-ee77d-deployment",
+        "s3Key": "amplify-builds/fortknox6d110471-4368564f353165593977-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknox-dev-ee77d-deployment/amplify-cfn-templates/function/fortknox6d110471-cloudformation-template.json",
+        "logicalId": "functionfortknox6d110471"
+      },
+      "lastPushTimeStamp": "2024-06-01T20:32:13.531Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::078918894010:role/fortknoxLambdaRolead99fb63-dev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:078918894010:function:fortknox6d110471-dev",
+        "Name": "fortknox6d110471-dev",
+        "LambdaExecutionRole": "fortknoxLambdaRolead99fb63-dev"
+      },
+      "lastPushDirHash": "Kbpy/815FmJUz33x8/ND4jUxpSQ="
+    },
+    "retoolEmbedFunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2024-06-01T20:25:10.475Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2024-06-01T20:25:11.603Z",
+      "distZipFilename": "retoolEmbedFunction-57724a59507559544e64-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-fortknox-dev-ee77d-deployment",
+        "s3Key": "amplify-builds/retoolEmbedFunction-57724a59507559544e64-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknox-dev-ee77d-deployment/amplify-cfn-templates/function/retoolEmbedFunction-cloudformation-template.json",
+        "logicalId": "functionretoolEmbedFunction"
+      },
+      "lastPushTimeStamp": "2024-06-01T20:32:13.532Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::078918894010:role/fortknoxLambdaRole06c8ec6e-dev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:078918894010:function:retoolEmbedFunction-dev",
+        "Name": "retoolEmbedFunction-dev",
+        "LambdaExecutionRole": "fortknoxLambdaRole06c8ec6e-dev"
+      },
+      "lastPushDirHash": "M0Oo8VmB+EhEXjQGHKwajeDOffk="
+    }
+  }
+}
