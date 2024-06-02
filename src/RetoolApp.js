@@ -24,7 +24,7 @@ function App({ signOut }) {
       const restOperation = get({
         //src: "https://syo089epz5.execute-api.us-east-1.amazonaws.com/embed"
         apiName: 'fortknoxrestapi',
-        path: '/item'
+        path: '/embedV2'
         // options: { 
         //   body: {
         //     message: 'Mow the lawn'
@@ -32,25 +32,28 @@ function App({ signOut }) {
         // }
       }); 
       const { body } = await restOperation.response;
-      //const response = await body.json();
+      const response = await body.json();
 
       console.log('GET call succeeded');
-      console.log(body);
+      //console.log(restOperation.response);
     } catch (e) {
       console.log('/embed GET call failed: ', JSON.parse(e.response.body));
     }
   }
 
-  useEffect(() => {
-    callEmbed()
-  }, [isSignedIn]);
+  // useEffect(() => {
+  //   if(isSignedIn == 1)
+  //     callEmbed()
+  // }, [isSignedIn]);
 
 
   Hub.listen('auth', ({ payload }) => {
     switch (payload.event) {
       case 'signedIn':
         setIsSignedIn(1)
+        callEmbed()
       case 'signedOut':
+        setIsSignedIn(0)
         console.log('user have been signedOut successfully.');
         break;
       case 'tokenRefresh':

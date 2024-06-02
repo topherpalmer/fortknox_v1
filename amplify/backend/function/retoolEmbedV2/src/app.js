@@ -33,7 +33,7 @@ app.use(awsServerlessExpressMiddleware.eventContext())
  * Example get method *
  **********************/
 
-app.get('/item', function(req, res) {
+app.get('/embedV2', function(req, res) {
   // Add your code here
   res.json({success: 'get call succeed!', url: req.url});
 });
