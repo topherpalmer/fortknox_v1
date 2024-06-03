@@ -22,44 +22,19 @@ function App({signOut}) {
 
   async function callEmbed()  {
     try {
-      const restOperation = post({
+      const restOperation = get({
         apiName: 'fortknoxrestapi',
-        path: '/embed',
-        // options: {
-        //   body: {
-        //     message: 'Mow the lawn'
-        //   }
-        // }
+        path: '/embed'
       }); 
-      const { body } = await restOperation.response;
-      const response = await body.json();
-  
-      console.log('GET call succeeded');
-      console.log(response);
+
     } catch (e) {
       console.log('/embed GET call failed: ', JSON.parse(e.response.body));
     }
   }
 
-  /*async function callApi() {
-    const people = await generateClient.API.get('fortknoxrestapi', '/embed')
-  }*/
   useEffect(() => {
     callEmbed()
   }, [])
-
-  /*  const myStyle = {
-      backgroundImage: `url(${process.env.PUBLIC_URL + "/images/MyFortKnox_FlyerDraft.png"})`,
-      height: "100vh",
-      marginTop: "-70px",
-      fontSize: "50px",
-      backgroundSize: "100%",
-      backgroundRepeat: "no-repeat"
-    };
-    const toolbarStyle = {
-      height: "100vh",
-      a
-    }*/
     return (
       <View className="App">
         <Card>
