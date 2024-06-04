@@ -13,6 +13,7 @@ import Retool from 'react-retool';//
 import { Hub } from 'aws-amplify/utils';
 import React, { useStat, useEffect } from 'react';
 import { post, get } from 'aws-amplify/api';
+import { Amplify } from "aws-amplify";
 
 const image = {uri: '/images/MyFortKnox_FlyerDraft.png'};
 
@@ -22,13 +23,23 @@ function App({signOut}) {
 
   async function callEmbed()  {
     try {
-      const restOperation = get({
+      const restOperation = post({
         apiName: 'fortknoxrestapi',
-        path: '/embed'
-      }); 
-
+        path: '/embedV2',
+        options: {
+          body: {
+            message: 'Mow the lawn'
+          }
+        }
+      });
+  
+      const { body } = await restOperation.response;
+      const response = await body.json();
+  
+      console.log('POST call succeeded');
+      console.log(response);
     } catch (e) {
-      console.log('/embed GET call failed: ', JSON.parse(e.response.body));
+      console.log('POST call failed: ', JSON.parse(e.response.body));
     }
   }
 
