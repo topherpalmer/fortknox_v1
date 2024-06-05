@@ -8,8 +8,8 @@ import {
   View,
   Card,
 } from "@aws-amplify/ui-react";
-//import axios from 'axios';
-import Retool from 'react-retool';//
+import axios from 'axios';
+import Retool from 'react-retool';
 import { Hub } from 'aws-amplify/utils';
 import React, { useStat, useEffect } from 'react';
 import { post, get } from 'aws-amplify/api';
@@ -22,26 +22,57 @@ function App({signOut}) {
 
 
   async function callEmbed()  {
-    try {
-      const restOperation = post({
-        apiName: 'fortknoxrestapi',
-        path: '/embedV2',
-        options: {
-          body: {
-            message: 'Mow the lawn'
-          }
+      axios.post('https://retooldev.myfortknox.co/api/embed-url/external-user', 
+      {
+        "landingPageUuid": "6b79c648-0bce-11ef-9ee7-8b6ef326de56",
+        "groupIds": [3117369],
+        "externalIdentifier": "2db6bd4c-84e8-43ee-ad38-4e06ed2614e8",
+        "userInfo": {
+          "firstName": "Chris",
+          "lastName": "Palmer",
+          "email": "chrispalmer@undefeatedsoftware.com"
         }
-      });
-  
-      const { body } = await restOperation.response;
-      const response = await body.json();
-  
-      console.log('POST call succeeded');
-      console.log(response);
-    } catch (e) {
-      console.log('POST call failed: ', JSON.parse(e.response.body));
-    }
+      },
+      {
+        headers: {
+          'Authorization': `Bearer retool_01hz5h90k9vxt4pq52epstwvzr`,
+          'Content-type': 'application/json'
+          
+        }
+      }
+
+    )
+    .then(response => {
+      //if (!response.ok) throw new Error('Response not OK');
+
+      //res.json({success: 'embedV2 post call succeed!', url: req.url})
+      console.log(response)
+    })
+    .catch(err => {
+      console.log("error")
+    })
   }
+    
+    // try {
+    //   const restOperation = post({
+    //     apiName: 'fortknoxrestapi',
+    //     path: '/embedV2',
+    //     options: {
+    //       body: {
+    //         message: 'Mow the lawn'
+    //       }
+    //     }
+    //   });
+  
+    //   const { body } = await restOperation.response;
+    //   const response = await body.json();
+  
+    //   console.log('POST call succeeded');
+    //   console.log(response);
+    // } catch (e) {
+    //   console.log('POST call failed: ', JSON.parse(e.response.body));
+    // }
+  //}
 
   useEffect(() => {
     callEmbed()

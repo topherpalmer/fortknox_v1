@@ -24,7 +24,7 @@ app.use(awsServerlessExpressMiddleware.eventContext())
 // Enable CORS for all methods
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
-  res.header("Access-Control-Allow-Headers", "*")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   next()
 });
 
@@ -47,10 +47,63 @@ app.get('/embedV2/*', function(req, res) {
 * Example post method *
 ****************************/
 
+var axios = require('axios')
+
 app.post('/embedV2', function(req, res) {
-  // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
+
+  const data = req.body;
+  //const app_uuid = app_name_to_uuid[data.retoolAppName];
+
+  // userJwt is an example variable that the frontend could pass to your backend,
+  // for use in a Retool application. Not required, used for demo purposes.
+  //const secret_key = process.env.SECRET_KEY;
+  //const decoded = jwt.decode(data.userJwt, secret_key);
+  const { token, firstName, lastName, email } = decoded;
+  
+  // const body = {
+  //               "landingPageUuid": "6b79c648-0bce-11ef-9ee7-8b6ef326de56",
+  //               "groupIds": [3117369],
+  //               "externalIdentifier": "2db6bd4c-84e8-43ee-ad38-4e06ed2614e8",
+  //               "userInfo": {
+  //                 "firstName": "Chris",
+  //                 "lastName": "Palmer",
+  //                 "email": "chrispalmer@undefeatedsoftware.com"
+  //               }
+  // };
+  axios.post('https://retooldev.myfortknox.co/api/embed-url/external-user', 
+              {
+                "landingPageUuid": "6b79c648-0bce-11ef-9ee7-8b6ef326de56",
+                "groupIds": [3117369],
+                "externalIdentifier": "2db6bd4c-84e8-43ee-ad38-4e06ed2614e8",
+                "userInfo": {
+                  "firstName": "Chris",
+                  "lastName": "Palmer",
+                  "email": "chrispalmer@undefeatedsoftware.com"
+                }
+              },
+              {
+                headers: {
+                  'Authorization': `Bearer retool_01hz5h90k9vxt4pq52epstwvzr`,
+                  'Content-type': 'application/json'
+                }
+              }
+
+            )
+            .then(response => {
+              //if (!response.ok) throw new Error('Response not OK');
+
+              //res.json({success: 'embedV2 post call succeed!', url: req.url})
+              res = response
+            })
+            .catch(err => {
+              res.json({error:true})
+            })
 });
+// app.post('/embedV2', function(req, res) {
+//   // Add your code here
+//   const people = [{name:"Chris"}, {name:"Heather"}]
+//   res.json({success: 'post call succeed!', url: req.url, poeple:people})
+// });
 
 app.post('/embedV2/*', function(req, res) {
   // Add your code here

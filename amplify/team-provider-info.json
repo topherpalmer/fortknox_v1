@@ -30,7 +30,7 @@
         },
         "retoolEmbedV2": {
           "deploymentBucketName": "amplify-fortknox-dev-ee77d-deployment",
-          "s3Key": "amplify-builds/retoolEmbedV2-45646c49494c75423731-build.zip"
+          "s3Key": "amplify-builds/retoolEmbedV2-61383046425035583773-build.zip"
         }
       }
     }
