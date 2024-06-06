@@ -1,45 +1,29 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "fortknox": {
-      "GraphQLAPIEndpointOutput": "string",
-      "GraphQLAPIIdOutput": "string",
-      "GraphQLAPIKeyOutput": "string"
-    },
     "fortknoxrestapi": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
+    },
+    "fortknoxv1": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string",
+      "GraphQLAPIKeyOutput": "string"
     }
   },
   "auth": {
-    "fortknox7dc461c3": {
+    "fortknoxv1fd5af9b7": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
-      "HostedUIDomain": "string",
       "IdentityPoolId": "string",
       "IdentityPoolName": "string",
-      "OAuthMetadata": "string",
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
     }
   },
   "function": {
-    "fortknox6d110471": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "retoolEmbedFunction": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "retoolEmbedV2": {
+    "retoolembedfunctin": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

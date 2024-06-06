@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "fortknoxv1",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authfortknoxv1fd5af9b7",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

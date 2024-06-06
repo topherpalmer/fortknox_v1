@@ -3,35 +3,22 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
-    "aws_appsync_graphqlEndpoint": "https://s2rf4ly67vgrjjbpotgefwkrki.appsync-api.us-east-1.amazonaws.com/graphql",
+    "aws_appsync_graphqlEndpoint": "https://yh6glc3yyrdv7jgqpu5buwcpdq.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-1",
     "aws_appsync_authenticationType": "API_KEY",
-    "aws_appsync_apiKey": "da2-y57jeyw7evb2zckzxoz77bb2z4",
+    "aws_appsync_apiKey": "da2-hw2tb42k4rajnhps23jv5d3fka",
     "aws_cloud_logic_custom": [
         {
             "name": "fortknoxrestapi",
-            "endpoint": "https://syo089epz5.execute-api.us-east-1.amazonaws.com/dev",
+            "endpoint": "https://88farqqqyb.execute-api.us-east-1.amazonaws.com/dev",
             "region": "us-east-1"
         }
     ],
-    "aws_cognito_identity_pool_id": "us-east-1:aefcf624-b0ae-44a9-a78e-38063509ae8b",
+    "aws_cognito_identity_pool_id": "us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7",
     "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_1OrM9Qbwo",
-    "aws_user_pools_web_client_id": "5m627c2qac2n674h9mpuhdujtq",
-    "oauth": {
-        "domain": "fortknox7dc461c3-7dc461c3-dev.auth.us-east-1.amazoncognito.com",
-        "scope": [
-            "phone",
-            "email",
-            "openid",
-            "profile",
-            "aws.cognito.signin.user.admin"
-        ],
-        "redirectSignIn": "https://www.undefeatedsoftware.com/federated/fortknox/signinRedirect/",
-        "redirectSignOut": "https://www.undefeatedsoftware.com/federated/fortknox/signoutRedirect/",
-        "responseType": "code"
-    },
-    "federationTarget": "COGNITO_USER_POOLS",
+    "aws_user_pools_id": "us-east-1_VfQVnh7Bk",
+    "aws_user_pools_web_client_id": "msa7qtv06lladaca1t5bumske",
+    "oauth": {},
     "aws_cognito_username_attributes": [
         "EMAIL"
     ],

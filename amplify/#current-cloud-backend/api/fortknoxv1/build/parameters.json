@@ -1,0 +1,13 @@
+{
+    "AppSyncApiName": "fortknoxv1",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authfortknoxv1fd5af9b7",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "S3DeploymentBucket": "amplify-fortknoxv1-dev-b0ab2-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/909d8bcecd34eb1b62e08c366874478c2de9f121"
+}
