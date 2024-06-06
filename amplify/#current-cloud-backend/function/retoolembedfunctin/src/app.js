@@ -44,10 +44,37 @@ app.get('/embed/*', function(req, res) {
 * Example post method *
 ****************************/
 
+var axios = require('axios')
 app.post('/embed', function(req, res) {
-  // Add your code here
-  res.json({success: 'post call succeed!', url: req.url, body: req.body})
-});
+    axios.post('https://retooldev.myfortknox.co/api/embed-url/external-user', 
+    {
+      "landingPageUuid": "6b79c648-0bce-11ef-9ee7-8b6ef326de56",
+      "groupIds": [3117369],
+      "externalIdentifier": "2db6bd4c-84e8-43ee-ad38-4e06ed2614e8",
+      "userInfo": {
+        "firstName": "Chris",
+        "lastName": "Palmer",
+        "email": "chrispalmer@undefeatedsoftware.com"
+      }
+    },
+    {
+      headers: {
+        'Authorization': `Bearer retool_01hz5h90k9vxt4pq52epstwvzr`,
+        'Content-type': 'application/json'
+      }
+    }
+    )
+    .then(response => {
+      //if (!response.ok) throw new Error('Response not OK');
+
+      //res.json({success: 'embedV2 post call succeed!', url: req.url})
+      console.log(response)
+    })
+    .catch(err => {
+      console.log("error")
+    })
+   //res.json({success: 'post call succeed!', url: req.url, body: req.body})
+ });
 
 app.post('/embed/*', function(req, res) {
   // Add your code here

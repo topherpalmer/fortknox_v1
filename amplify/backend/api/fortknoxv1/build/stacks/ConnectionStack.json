@@ -116,7 +116,7 @@
               {
                 "Ref": "referencetotransformerrootstackAccountNestedStackAccountNestedStackResource2C670FE9OutputstransformerrootstackAccountAccountTable80987830Ref"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -209,7 +209,7 @@
               {
                 "Ref": "referencetotransformerrootstackProfileNestedStackProfileNestedStackResource2A51D492OutputstransformerrootstackProfileProfileTableDAD5B613Ref"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -302,7 +302,7 @@
               {
                 "Ref": "referencetotransformerrootstackBankNestedStackBankNestedStackResource8BA72A62OutputstransformerrootstackBankBankTableD7C1CDF2Ref"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -395,7 +395,7 @@
               {
                 "Ref": "referencetotransformerrootstackAddressNestedStackAddressNestedStackResource5E83DEBDOutputstransformerrootstackAddressAddressTableE1F3DA7DRef"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -488,7 +488,7 @@
               {
                 "Ref": "referencetotransformerrootstackAccountNestedStackAccountNestedStackResource2C670FE9OutputstransformerrootstackAccountAccountTable80987830Ref"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -581,7 +581,7 @@
               {
                 "Ref": "referencetotransformerrootstackAccountNestedStackAccountNestedStackResource2C670FE9OutputstransformerrootstackAccountAccountTable80987830Ref"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },

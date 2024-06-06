@@ -23,7 +23,7 @@ function App({signOut}) {
 
   async function callEmbed()  {    
     try {
-      const restOperation = get({
+      const restOperation = post({
         apiName: 'fortknoxrestapi',
         path: '/embed',
         options: {

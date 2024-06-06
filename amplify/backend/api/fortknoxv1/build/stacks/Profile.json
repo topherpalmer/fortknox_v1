@@ -484,7 +484,7 @@
               {
                 "Ref": "ProfileTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -583,7 +583,7 @@
               {
                 "Ref": "ProfileTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -682,7 +682,7 @@
               {
                 "Ref": "ProfileTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -784,7 +784,7 @@
               {
                 "Ref": "ProfileTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -940,7 +940,7 @@
               {
                 "Ref": "ProfileTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -1093,7 +1093,7 @@
               {
                 "Ref": "ProfileTable"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"deltaSyncTableTtl\", 30))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -1130,7 +1130,7 @@
               {
                 "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -1167,7 +1167,7 @@
               {
                 "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
@@ -1204,7 +1204,7 @@
               {
                 "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
               },
-              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+              "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"identityPoolId\", \"us-east-1:2b1ad91f-8add-470c-8c6d-6cb8bd6fe5b7\"))\n$util.qr($ctx.stash.put(\"adminRoles\", [\"us-east-1_xgg72Hoq5_Full-access/CognitoIdentityCredentials\",\"us-east-1_xgg72Hoq5_Manage-only/CognitoIdentityCredentials\"]))\n$util.toJson({})"
             ]
           ]
         },
