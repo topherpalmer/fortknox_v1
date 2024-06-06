@@ -22,6 +22,8 @@ function App({signOut}) {
 
 
   async function callEmbed()  {    
+    //{"success":"embed post call succeed!","url":"/embed","body":{"embedUrl":"https://retooldev.myfortknox.co/embed-redirect?nonce=e7ac0370-caee-4988-b22c-e6d45957972f&destination=%2Fembedded%2Fauthed%2F6b79c648-0bce-11ef-9ee7-8b6ef326de56"}}
+
     try {
       const restOperation = post({
         apiName: 'fortknoxrestapi',
