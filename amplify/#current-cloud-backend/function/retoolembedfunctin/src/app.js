@@ -75,12 +75,12 @@ app.post('/embed', function(req, res) {
   
   axios.request(config)
   .then((response) => {
-    res.json({success: 'embed post call succeed!', url: req.url, body:response.data})
+    res.json({success: 'embed post call succeed!', url: req.url, embedUrl:response.data.embedUrl})
     console.log(response)
 
     //console.log(JSON.stringify(response.data));
   })
-  .catch((error) => {
+  .catch((error) => { 
     console.log(error);
   });
 

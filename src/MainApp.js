@@ -11,22 +11,25 @@ import {
 import axios, { getAdapter } from 'axios';
 import Retool from 'react-retool';
 import { Hub } from 'aws-amplify/utils';
-import React, { useStat, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { post, get } from 'aws-amplify/api';
 import { Amplify } from "aws-amplify";
+import { Row, Container } from "reactstrap";
 
 const image = {uri: '/images/MyFortKnox_FlyerDraft.png'};
 
 
 function App({signOut}) {
 
-  //const retoolEmbedUrl = ""
+  const [retoolEmbedUrl, setRetoolEmbedUrl] = useState("");
 
   async function callEmbed()  {    
     //{"success":"embed post call succeed!","url":"/embed","body":{"embedUrl":"https://retooldev.myfortknox.co/embed-redirect?nonce=e7ac0370-caee-4988-b22c-e6d45957972f&destination=%2Fembedded%2Fauthed%2F6b79c648-0bce-11ef-9ee7-8b6ef326de56"}}
 
+
     try {
-      const restOperation = post({
+
+      const restOperation = await post({
         apiName: 'fortknoxrestapi',
         path: '/embed'
         // options: {
@@ -36,40 +39,37 @@ function App({signOut}) {
         // }
       });
   
-      const retoolEmbedUrl = await restOperation.response;
+      const { body } = await restOperation.response;
+      const response = await body.json();
+      setRetoolEmbedUrl(response.embedUrl);
       console.log(retoolEmbedUrl)
-      //console.log(body);
-      //const response = await body.json();
-      //console.log(response)
-      //retoolEmbedUrl = response.body.embedUrl
-  
       console.log('POST call succeeded');
-      //console.log(response);
+      console.log(response);
     } catch (e) {
-        console.log('POST call failed: ', JSON.parse(e.response.body));
+        console.log('POST call failed: ', JSON.parse(e.response));
     }
   }
 
   useEffect(() => {
     callEmbed()
   }, [])
-  // return (
-  //   retoolEmbedUrl && (
-  //     <Container maxWidth={false} disableGutters>
-  //       <Retool url={retoolEmbedUrl} />
-  //     </Container>
-  //   )
-  // );
+  return (
+    retoolEmbedUrl && (
+      <Container maxWidth={false} disableGutters>
+        <Retool url={retoolEmbedUrl} />
+      </Container>
+    )
+  );
 
-    return (
-      <View className="App">
-        <Card>
-          <Image src={logo} className="App-logo" alt="logo" />
-          <Heading level={1}>We now have Auth!</Heading>
-        </Card>
-        <Button onClick={signOut}>Sign Out</Button>
-      </View>
-    );
+    // return (
+    //   <View className="App">
+    //     <Card>
+    //       <Image src={logo} className="App-logo" alt="logo" />
+    //       <Heading level={1}>We now have Auth!</Heading>
+    //     </Card>
+    //     <Button onClick={signOut}>Sign Out</Button>
+    //   </View>
+    // );
 }
 
 export default withAuthenticator(App)

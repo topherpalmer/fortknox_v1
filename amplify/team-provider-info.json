@@ -18,7 +18,7 @@
       "function": {
         "retoolembedfunctin": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/retoolembedfunctin-67787462646f57643533-build.zip"
+          "s3Key": "amplify-builds/retoolembedfunctin-504e3265357332313173-build.zip"
         }
       },
       "api": {

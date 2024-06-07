@@ -7,7 +7,7 @@ import { Amplify } from 'aws-amplify';
 import config from './aws-exports';
 import RetoolApp from './RetoolApp';
 import MainApp from './MainApp';
-
+import 'bootstrap/dist/css/bootstrap.css';
 
 Amplify.configure(config);
 

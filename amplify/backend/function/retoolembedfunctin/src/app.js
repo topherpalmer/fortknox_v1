@@ -47,7 +47,7 @@ app.get('/embed/*', function(req, res) {
 var axios = require('axios')
 
 app.post('/embed', function(req, res) {
-y
+
   
   let data = JSON.stringify({
     "landingPageUuid": "6b79c648-0bce-11ef-9ee7-8b6ef326de56",
@@ -80,7 +80,7 @@ y
 
     //console.log(JSON.stringify(response.data));
   })
-  .catch((error) => {
+  .catch((error) => { 
     console.log(error);
   });
 
