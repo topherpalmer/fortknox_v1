@@ -119,12 +119,6 @@
     "BankTable": {
       "Type": "AWS::DynamoDB::Table",
       "Properties": {
-        "KeySchema": [
-          {
-            "AttributeName": "id",
-            "KeyType": "HASH"
-          }
-        ],
         "AttributeDefinitions": [
           {
             "AttributeName": "id",
@@ -140,6 +134,12 @@
             }
           ]
         },
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
         "PointInTimeRecoverySpecification": {
           "Fn::If": [
             "ShouldUsePointInTimeRecovery",
@@ -357,8 +357,6 @@
         "ApiId": {
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
-        "Name": "BankTable",
-        "Type": "AMAZON_DYNAMODB",
         "DynamoDBConfig": {
           "AwsRegion": {
             "Ref": "AWS::Region"
@@ -387,12 +385,14 @@
           },
           "Versioned": true
         },
+        "Name": "BankTable",
         "ServiceRoleArn": {
           "Fn::GetAtt": [
             "BankIAMRole7D13CCBB",
             "Arn"
           ]
-        }
+        },
+        "Type": "AMAZON_DYNAMODB"
       },
       "DependsOn": [
         "BankIAMRole7D13CCBB"
@@ -410,8 +410,8 @@
             "Name"
           ]
         },
-        "Name": "QueryGetBankDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "QueryGetBankDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -460,7 +460,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "getBank",
-        "TypeName": "Query",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -510,7 +509,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Query"
       }
     },
     "QueryListBanksDataResolverFnQueryListBanksDataResolverFnAppSyncFunction1B263A14": {
@@ -525,8 +525,8 @@
             "Name"
           ]
         },
-        "Name": "QueryListBanksDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "QueryListBanksDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -575,7 +575,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "listBanks",
-        "TypeName": "Query",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -625,7 +624,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Query"
       }
     },
     "QuerySyncBanksDataResolverFnQuerySyncBanksDataResolverFnAppSyncFunction52B53DCD": {
@@ -640,8 +640,8 @@
             "Name"
           ]
         },
-        "Name": "QuerySyncBanksDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "QuerySyncBanksDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -690,7 +690,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "syncBanks",
-        "TypeName": "Query",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -740,7 +739,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Query"
       }
     },
     "MutationCreateBankDataResolverFnMutationCreateBankDataResolverFnAppSyncFunction74263595": {
@@ -755,8 +755,8 @@
             "Name"
           ]
         },
-        "Name": "MutationCreateBankDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationCreateBankDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -805,7 +805,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "createBank",
-        "TypeName": "Mutation",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -858,7 +857,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Mutation"
       }
     },
     "MutationupdateBankauth0FunctionMutationupdateBankauth0FunctionAppSyncFunction35107928": {
@@ -873,8 +873,8 @@
             "Name"
           ]
         },
-        "Name": "MutationupdateBankauth0Function",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationupdateBankauth0Function",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -924,8 +924,8 @@
             "Name"
           ]
         },
-        "Name": "MutationUpdateBankDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationUpdateBankDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -974,7 +974,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "updateBank",
-        "TypeName": "Mutation",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1030,7 +1029,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Mutation"
       }
     },
     "MutationdeleteBankauth0FunctionMutationdeleteBankauth0FunctionAppSyncFunctionEBD4E1B8": {
@@ -1045,8 +1045,8 @@
             "Name"
           ]
         },
-        "Name": "MutationdeleteBankauth0Function",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationdeleteBankauth0Function",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -1096,8 +1096,8 @@
             "Name"
           ]
         },
-        "Name": "MutationDeleteBankDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationDeleteBankDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -1146,7 +1146,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "deleteBank",
-        "TypeName": "Mutation",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1199,7 +1198,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Mutation"
       }
     },
     "SubscriptiononCreateBankResolver": {
@@ -1209,7 +1209,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "onCreateBank",
-        "TypeName": "Subscription",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1252,7 +1251,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Subscription"
       }
     },
     "SubscriptiononUpdateBankResolver": {
@@ -1262,7 +1262,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "onUpdateBank",
-        "TypeName": "Subscription",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1305,7 +1304,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Subscription"
       }
     },
     "SubscriptiononDeleteBankResolver": {
@@ -1315,7 +1315,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "onDeleteBank",
-        "TypeName": "Subscription",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1358,7 +1357,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Subscription"
       }
     }
   },

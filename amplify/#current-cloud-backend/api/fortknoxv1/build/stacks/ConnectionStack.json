@@ -9,8 +9,8 @@
         "DataSourceName": {
           "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
         },
-        "Name": "Profileaccountsauth0Function",
         "FunctionVersion": "2018-05-29",
+        "Name": "Profileaccountsauth0Function",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -39,8 +39,8 @@
         "DataSourceName": {
           "Ref": "referencetotransformerrootstackAccountNestedStackAccountNestedStackResource2C670FE9OutputstransformerrootstackAccountAccountDataSourceFA06064EName"
         },
-        "Name": "ProfileAccountsDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "ProfileAccountsDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -86,7 +86,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "accounts",
-        "TypeName": "Profile",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -136,7 +135,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Profile"
       }
     },
     "UserProfileDataResolverFnUserProfileDataResolverFnAppSyncFunctionBAD25EB2": {
@@ -148,8 +148,8 @@
         "DataSourceName": {
           "Ref": "referencetotransformerrootstackProfileNestedStackProfileNestedStackResource2A51D492OutputstransformerrootstackProfileProfileDataSource28492795Name"
         },
-        "Name": "UserProfileDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "UserProfileDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -195,7 +195,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "profile",
-        "TypeName": "User",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -245,7 +244,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "User"
       }
     },
     "AccountBankDataResolverFnAccountBankDataResolverFnAppSyncFunction0D9BA9F5": {
@@ -257,8 +257,8 @@
         "DataSourceName": {
           "Ref": "referencetotransformerrootstackBankNestedStackBankNestedStackResource8BA72A62OutputstransformerrootstackBankBankDataSourceB7F9519BName"
         },
-        "Name": "AccountBankDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "AccountBankDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -304,7 +304,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "bank",
-        "TypeName": "Account",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -354,7 +353,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Account"
       }
     },
     "AccountAddressDataResolverFnAccountAddressDataResolverFnAppSyncFunction6CEFA1FF": {
@@ -366,8 +366,8 @@
         "DataSourceName": {
           "Ref": "referencetotransformerrootstackAddressNestedStackAddressNestedStackResource5E83DEBDOutputstransformerrootstackAddressAddressDataSource9DD9FED0Name"
         },
-        "Name": "AccountAddressDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "AccountAddressDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -413,7 +413,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "address",
-        "TypeName": "Account",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -463,7 +462,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Account"
       }
     },
     "TrxnAgreementSenderProfileAccountDataResolverFnTrxnAgreementSenderProfileAccountDataResolverFnAppSyncFunction7DA9EC9F": {
@@ -475,8 +475,8 @@
         "DataSourceName": {
           "Ref": "referencetotransformerrootstackAccountNestedStackAccountNestedStackResource2C670FE9OutputstransformerrootstackAccountAccountDataSourceFA06064EName"
         },
-        "Name": "TrxnAgreementSenderProfileAccountDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "TrxnAgreementSenderProfileAccountDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -522,7 +522,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "senderProfileAccount",
-        "TypeName": "TrxnAgreement",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -572,7 +571,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "TrxnAgreement"
       }
     },
     "TrxnAgreementReceiverProfileAccountDataResolverFnTrxnAgreementReceiverProfileAccountDataResolverFnAppSyncFunction9CBF9FBB": {
@@ -584,8 +584,8 @@
         "DataSourceName": {
           "Ref": "referencetotransformerrootstackAccountNestedStackAccountNestedStackResource2C670FE9OutputstransformerrootstackAccountAccountDataSourceFA06064EName"
         },
-        "Name": "TrxnAgreementReceiverProfileAccountDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "TrxnAgreementReceiverProfileAccountDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -631,7 +631,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "receiverProfileAccount",
-        "TypeName": "TrxnAgreement",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -681,7 +680,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "TrxnAgreement"
       }
     }
   },

@@ -8,6 +8,12 @@
             "Outputs.UserPoolId"
         ]
     },
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
     "S3DeploymentBucket": "amplify-fortknoxv1-dev-b0ab2-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/4712a29f418cbef4cbd82690a56ecd9e4eff4005"
+    "S3DeploymentRootKey": "amplify-appsync-files/030731dd192b2f12f2eea344f357d5e2364e1481"
 }

@@ -368,43 +368,43 @@
         "Name": "fortknoxrestapi"
       }
     },
-    "fortknoxrestapiDefault4XXResponse95ffa1e7": {
+    "fortknoxrestapiDefault4XXResponse2d3cd04d": {
       "Type": "AWS::ApiGateway::GatewayResponse",
       "Properties": {
+        "ResponseParameters": {
+          "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
+          "gatewayresponse.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+          "gatewayresponse.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+          "gatewayresponse.header.Access-Control-Expose-Headers": "'Date,X-Amzn-ErrorType'"
+        },
         "ResponseType": "DEFAULT_4XX",
         "RestApiId": {
           "Ref": "fortknoxrestapi"
-        },
+        }
+      }
+    },
+    "fortknoxrestapiDefault5XXResponse2d3cd04d": {
+      "Type": "AWS::ApiGateway::GatewayResponse",
+      "Properties": {
         "ResponseParameters": {
           "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
           "gatewayresponse.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
           "gatewayresponse.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
           "gatewayresponse.header.Access-Control-Expose-Headers": "'Date,X-Amzn-ErrorType'"
-        }
-      }
-    },
-    "fortknoxrestapiDefault5XXResponse95ffa1e7": {
-      "Type": "AWS::ApiGateway::GatewayResponse",
-      "Properties": {
+        },
         "ResponseType": "DEFAULT_5XX",
         "RestApiId": {
           "Ref": "fortknoxrestapi"
-        },
-        "ResponseParameters": {
-          "gatewayresponse.header.Access-Control-Allow-Origin": "'*'",
-          "gatewayresponse.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
-          "gatewayresponse.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
-          "gatewayresponse.header.Access-Control-Expose-Headers": "'Date,X-Amzn-ErrorType'"
         }
       }
     },
-    "DeploymentAPIGWfortknoxrestapi44183143": {
+    "DeploymentAPIGWfortknoxrestapibd7d9eb5": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
+        "Description": "The Development stage deployment of your API.",
         "RestApiId": {
           "Ref": "fortknoxrestapi"
         },
-        "Description": "The Development stage deployment of your API.",
         "StageName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
@@ -416,8 +416,8 @@
         }
       },
       "DependsOn": [
-        "fortknoxrestapiDefault4XXResponse95ffa1e7",
-        "fortknoxrestapiDefault5XXResponse95ffa1e7"
+        "fortknoxrestapiDefault4XXResponse2d3cd04d",
+        "fortknoxrestapiDefault5XXResponse2d3cd04d"
       ]
     }
   }

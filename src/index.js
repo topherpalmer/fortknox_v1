@@ -15,7 +15,7 @@ Amplify.configure(config);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <OpenAIApp/>
+    <MainApp/>
   </React.StrictMode>
 );
 

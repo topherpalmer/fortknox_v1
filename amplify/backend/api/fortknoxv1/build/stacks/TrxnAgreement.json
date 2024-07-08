@@ -119,12 +119,6 @@
     "TrxnAgreementTable": {
       "Type": "AWS::DynamoDB::Table",
       "Properties": {
-        "KeySchema": [
-          {
-            "AttributeName": "id",
-            "KeyType": "HASH"
-          }
-        ],
         "AttributeDefinitions": [
           {
             "AttributeName": "id",
@@ -140,6 +134,12 @@
             }
           ]
         },
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
+          }
+        ],
         "PointInTimeRecoverySpecification": {
           "Fn::If": [
             "ShouldUsePointInTimeRecovery",
@@ -357,8 +357,6 @@
         "ApiId": {
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
-        "Name": "TrxnAgreementTable",
-        "Type": "AMAZON_DYNAMODB",
         "DynamoDBConfig": {
           "AwsRegion": {
             "Ref": "AWS::Region"
@@ -387,12 +385,14 @@
           },
           "Versioned": true
         },
+        "Name": "TrxnAgreementTable",
         "ServiceRoleArn": {
           "Fn::GetAtt": [
             "TrxnAgreementIAMRoleB0E0CA42",
             "Arn"
           ]
-        }
+        },
+        "Type": "AMAZON_DYNAMODB"
       },
       "DependsOn": [
         "TrxnAgreementIAMRoleB0E0CA42"
@@ -410,8 +410,8 @@
             "Name"
           ]
         },
-        "Name": "QueryGetTrxnAgreementDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "QueryGetTrxnAgreementDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -460,7 +460,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "getTrxnAgreement",
-        "TypeName": "Query",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -510,7 +509,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Query"
       }
     },
     "QueryListTrxnAgreementsDataResolverFnQueryListTrxnAgreementsDataResolverFnAppSyncFunction22993C4E": {
@@ -525,8 +525,8 @@
             "Name"
           ]
         },
-        "Name": "QueryListTrxnAgreementsDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "QueryListTrxnAgreementsDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -575,7 +575,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "listTrxnAgreements",
-        "TypeName": "Query",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -625,7 +624,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Query"
       }
     },
     "QuerySyncTrxnAgreementsDataResolverFnQuerySyncTrxnAgreementsDataResolverFnAppSyncFunctionBE240C2F": {
@@ -640,8 +640,8 @@
             "Name"
           ]
         },
-        "Name": "QuerySyncTrxnAgreementsDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "QuerySyncTrxnAgreementsDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -690,7 +690,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "syncTrxnAgreements",
-        "TypeName": "Query",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -740,7 +739,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Query"
       }
     },
     "MutationCreateTrxnAgreementDataResolverFnMutationCreateTrxnAgreementDataResolverFnAppSyncFunction0B162D98": {
@@ -755,8 +755,8 @@
             "Name"
           ]
         },
-        "Name": "MutationCreateTrxnAgreementDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationCreateTrxnAgreementDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -805,7 +805,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "createTrxnAgreement",
-        "TypeName": "Mutation",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -858,7 +857,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Mutation"
       }
     },
     "MutationupdateTrxnAgreementauth0FunctionMutationupdateTrxnAgreementauth0FunctionAppSyncFunction5FE83735": {
@@ -873,8 +873,8 @@
             "Name"
           ]
         },
-        "Name": "MutationupdateTrxnAgreementauth0Function",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationupdateTrxnAgreementauth0Function",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -924,8 +924,8 @@
             "Name"
           ]
         },
-        "Name": "MutationUpdateTrxnAgreementDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationUpdateTrxnAgreementDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -974,7 +974,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "updateTrxnAgreement",
-        "TypeName": "Mutation",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1030,7 +1029,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Mutation"
       }
     },
     "MutationdeleteTrxnAgreementauth0FunctionMutationdeleteTrxnAgreementauth0FunctionAppSyncFunctionE9CC33F5": {
@@ -1045,8 +1045,8 @@
             "Name"
           ]
         },
-        "Name": "MutationdeleteTrxnAgreementauth0Function",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationdeleteTrxnAgreementauth0Function",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -1096,8 +1096,8 @@
             "Name"
           ]
         },
-        "Name": "MutationDeleteTrxnAgreementDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationDeleteTrxnAgreementDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -1146,7 +1146,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "deleteTrxnAgreement",
-        "TypeName": "Mutation",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1199,7 +1198,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Mutation"
       }
     },
     "SubscriptiononCreateTrxnAgreementResolver": {
@@ -1209,7 +1209,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "onCreateTrxnAgreement",
-        "TypeName": "Subscription",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1252,7 +1251,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Subscription"
       }
     },
     "SubscriptiononUpdateTrxnAgreementResolver": {
@@ -1262,7 +1262,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "onUpdateTrxnAgreement",
-        "TypeName": "Subscription",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1305,7 +1304,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Subscription"
       }
     },
     "SubscriptiononDeleteTrxnAgreementResolver": {
@@ -1315,7 +1315,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "onDeleteTrxnAgreement",
-        "TypeName": "Subscription",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1358,7 +1357,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Subscription"
       }
     }
   },

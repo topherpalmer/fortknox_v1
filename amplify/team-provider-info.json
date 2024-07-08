@@ -22,7 +22,7 @@
         },
         "openaiFunction": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/openaiFunction-3377734f636d7451774d-build.zip"
+          "s3Key": "amplify-builds/openaiFunction-4176786b43314f657336-build.zip"
         }
       },
       "api": {

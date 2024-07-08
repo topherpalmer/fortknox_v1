@@ -144,15 +144,6 @@ app.post('/newVendorWire', function(req, res) {
             model: "gpt-3.5-turbo",
             messages: previousMessages
           });
-          // const response = await openai.createChatCompletion({
-          //         model: "gpt-3.5-turbo",
-          //         temperature: 0.888,
-          //         max_tokens: 2048,
-          //         frequency_penalty: 0,
-          //         presence_penalty: 0,
-          //         top_p: 1,
-          //         messages: previousMessages,//[{role: "system", content: instructions}, {role: "user", content: ''}], // {role: "assistant", content: ''}
-          //     }, { timeout: 60000 });
 
           console.log(response);
           const response_text = response.choices[0].message.content.trim();
@@ -177,37 +168,12 @@ app.post('/newVendorWire', function(req, res) {
       chatGptCalling(previousMessages);
       console.log(previousMessages);
 
-    // Extract the completion text from the API response
-    // const reply = completion.choices[0].message;
-    // const formattedText = reply.content;
-    
-
-   //return apiResponse.successResponseWithData(res, "Response fetched successfully", { formattedText });
   } catch (error) {
       console.log(error)
       res.json({success: 'post call for newVendorWire failed!', url: req.url, body: error})
 
-      //return apiResponse.ErrorResponse(res, error.message);
   }
-  //const openai = new OpenAI({apiKey:[process.env('OPENAI_KEY')]});
-  //const openai = new OpenAI({apiKey:'sk-proj-GETCBWHqs2hmCWVWBEkbT3BlbkFJIqTs1zJvgvjDnQVTZHeU'});
-//  const gptResponse = await openai.chat.completions.create({
-//     model:'gpt-3.5-turbo',
-//     messages[{
-//         role: "system",
-//         content: "New vendor wires are awesome"
-//     }, ...body.messages.map<{
-//        role: "system" | "assistant" | "user",
-//        content: string
-//     }>(message => ({
-//        role: message.sender === "ai" ? "assistant" : "user",
-//        content: message.text
-//     }))]
-//   });
 
-//   const result = gptResponse.choices[0].message.content;
-
-  //res.json({success: 'post call succeed!', url: req.url, body: result})
 });
 
 app.post('/item/*', function(req, res) {
