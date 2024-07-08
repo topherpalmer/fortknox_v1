@@ -9,13 +9,13 @@
 #if( !$util.isNullOrEmpty($ctx.stash.authFilter) )
   #set( $filter = $ctx.stash.authFilter )
   #if( $ctx.stash.QueryRequestVariables.partitionKey )
-    #foreach( $filterItem in $ctx.stash.authFilter.or )
+	#foreach( $filterItem in $ctx.stash.authFilter.get('or') )
       #if( $filterItem.get($ctx.stash.QueryRequestVariables.partitionKey) )
         #set( $queryFilterContainsAuthField = true )
       #end
     #end
     #if( !$queryFilterContainsAuthField )
-      #foreach( $filterItem in $ctx.stash.authFilter.or )
+		#foreach( $filterItem in $ctx.stash.authFilter.get('or') )
         #foreach( $sortKey in $ctx.stash.QueryRequestVariables.sortKeys )
           #if( $filterItem.get($sortKey) )
             #set( $authFilterContainsSortKey = true )
@@ -33,7 +33,7 @@
         #set( $useScan = false )
       #end
     #else
-      #foreach( $filterItem in $ctx.stash.authFilter.or )
+		#foreach( $filterItem in $ctx.stash.authFilter.get('or') )
         #if( $util.toJson($filterItem) == $util.toJson($ctx.stash.QueryRequestVariables.partitionKeyFilter) )
           #set( $useScan = false )
         #end

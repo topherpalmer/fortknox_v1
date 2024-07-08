@@ -173,7 +173,7 @@
             "Ref": "UnauthRoleName"
           },
           "S3DeploymentBucket": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/4712a29f418cbef4cbd82690a56ecd9e4eff4005",
+          "S3DeploymentRootKey": "amplify-appsync-files/030731dd192b2f12f2eea344f357d5e2364e1481",
           "env": "dev"
         }
       }
@@ -270,7 +270,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/openaiFunction-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/openaiFunction-3377734f636d7451774d-build.zip",
+          "s3Key": "amplify-builds/openaiFunction-4176786b43314f657336-build.zip",
           "env": "dev"
         }
       }

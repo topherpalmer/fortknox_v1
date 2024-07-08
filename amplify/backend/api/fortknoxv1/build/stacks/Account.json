@@ -122,12 +122,6 @@
     "AccountTable": {
       "Type": "AWS::DynamoDB::Table",
       "Properties": {
-        "KeySchema": [
-          {
-            "AttributeName": "id",
-            "KeyType": "HASH"
-          }
-        ],
         "AttributeDefinitions": [
           {
             "AttributeName": "id",
@@ -175,6 +169,12 @@
                 }
               ]
             }
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "id",
+            "KeyType": "HASH"
           }
         ],
         "PointInTimeRecoverySpecification": {
@@ -394,8 +394,6 @@
         "ApiId": {
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
-        "Name": "AccountTable",
-        "Type": "AMAZON_DYNAMODB",
         "DynamoDBConfig": {
           "AwsRegion": {
             "Ref": "AWS::Region"
@@ -424,12 +422,14 @@
           },
           "Versioned": true
         },
+        "Name": "AccountTable",
         "ServiceRoleArn": {
           "Fn::GetAtt": [
             "AccountIAMRole6175C8EA",
             "Arn"
           ]
-        }
+        },
+        "Type": "AMAZON_DYNAMODB"
       },
       "DependsOn": [
         "AccountIAMRole6175C8EA"
@@ -447,8 +447,8 @@
             "Name"
           ]
         },
-        "Name": "QueryGetAccountDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "QueryGetAccountDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -497,7 +497,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "getAccount",
-        "TypeName": "Query",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -547,7 +546,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Query"
       }
     },
     "QueryListAccountsDataResolverFnQueryListAccountsDataResolverFnAppSyncFunction86D234B1": {
@@ -562,8 +562,8 @@
             "Name"
           ]
         },
-        "Name": "QueryListAccountsDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "QueryListAccountsDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -612,7 +612,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "listAccounts",
-        "TypeName": "Query",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -662,7 +661,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Query"
       }
     },
     "QuerysyncAccountspreAuth0FunctionQuerysyncAccountspreAuth0FunctionAppSyncFunction88D87048": {
@@ -674,8 +674,8 @@
         "DataSourceName": {
           "Ref": "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name"
         },
-        "Name": "QuerysyncAccountspreAuth0Function",
         "FunctionVersion": "2018-05-29",
+        "Name": "QuerysyncAccountspreAuth0Function",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -707,8 +707,8 @@
             "Name"
           ]
         },
-        "Name": "QuerySyncAccountsDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "QuerySyncAccountsDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -757,7 +757,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "syncAccounts",
-        "TypeName": "Query",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -813,7 +812,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Query"
       }
     },
     "MutationCreateAccountDataResolverFnMutationCreateAccountDataResolverFnAppSyncFunction871F161A": {
@@ -828,8 +828,8 @@
             "Name"
           ]
         },
-        "Name": "MutationCreateAccountDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationCreateAccountDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -878,7 +878,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "createAccount",
-        "TypeName": "Mutation",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -931,7 +930,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Mutation"
       }
     },
     "MutationupdateAccountauth0FunctionMutationupdateAccountauth0FunctionAppSyncFunction03A1F78A": {
@@ -946,8 +946,8 @@
             "Name"
           ]
         },
-        "Name": "MutationupdateAccountauth0Function",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationupdateAccountauth0Function",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -997,8 +997,8 @@
             "Name"
           ]
         },
-        "Name": "MutationUpdateAccountDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationUpdateAccountDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -1047,7 +1047,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "updateAccount",
-        "TypeName": "Mutation",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1103,7 +1102,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Mutation"
       }
     },
     "MutationdeleteAccountauth0FunctionMutationdeleteAccountauth0FunctionAppSyncFunction3319469E": {
@@ -1118,8 +1118,8 @@
             "Name"
           ]
         },
-        "Name": "MutationdeleteAccountauth0Function",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationdeleteAccountauth0Function",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -1169,8 +1169,8 @@
             "Name"
           ]
         },
-        "Name": "MutationDeleteAccountDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "MutationDeleteAccountDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -1219,7 +1219,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "deleteAccount",
-        "TypeName": "Mutation",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1272,7 +1271,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Mutation"
       }
     },
     "SubscriptiononCreateAccountResolver": {
@@ -1282,7 +1282,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "onCreateAccount",
-        "TypeName": "Subscription",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1325,7 +1324,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Subscription"
       }
     },
     "SubscriptiononUpdateAccountResolver": {
@@ -1335,7 +1335,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "onUpdateAccount",
-        "TypeName": "Subscription",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1378,7 +1377,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Subscription"
       }
     },
     "SubscriptiononDeleteAccountResolver": {
@@ -1388,7 +1388,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "onDeleteAccount",
-        "TypeName": "Subscription",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1431,7 +1430,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Subscription"
       }
     },
     "QueryAccountsByProfileIdDataResolverFnQueryAccountsByProfileIdDataResolverFnAppSyncFunction4A384195": {
@@ -1446,8 +1446,8 @@
             "Name"
           ]
         },
-        "Name": "QueryAccountsByProfileIdDataResolverFn",
         "FunctionVersion": "2018-05-29",
+        "Name": "QueryAccountsByProfileIdDataResolverFn",
         "RequestMappingTemplateS3Location": {
           "Fn::Join": [
             "",
@@ -1496,7 +1496,6 @@
           "Ref": "referencetotransformerrootstackGraphQLAPI20497F53ApiId"
         },
         "FieldName": "accountsByProfileId",
-        "TypeName": "Query",
         "Kind": "PIPELINE",
         "PipelineConfig": {
           "Functions": [
@@ -1546,7 +1545,8 @@
             ]
           ]
         },
-        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)"
+        "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+        "TypeName": "Query"
       }
     }
   },
