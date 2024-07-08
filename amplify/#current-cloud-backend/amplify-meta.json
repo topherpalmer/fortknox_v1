@@ -18,11 +18,11 @@
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
-          "category": "auth",
-          "resourceName": "fortknoxv1fd5af9b7",
           "attributes": [
             "UserPoolId"
-          ]
+          ],
+          "category": "auth",
+          "resourceName": "fortknoxv1fd5af9b7"
         }
       ],
       "output": {
@@ -41,6 +41,9 @@
               "userPoolConfig": {
                 "userPoolId": "authfortknoxv1fd5af9b7"
               }
+            },
+            {
+              "authenticationType": "AWS_IAM"
             }
           ]
         },
@@ -48,12 +51,12 @@
         "GraphQLAPIEndpointOutput": "https://yh6glc3yyrdv7jgqpu5buwcpdq.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-hw2tb42k4rajnhps23jv5d3fka"
       },
-      "lastPushTimeStamp": "2024-06-07T02:28:11.434Z",
+      "lastPushTimeStamp": "2024-07-07T17:21:48.763Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apifortknoxv1"
       },
-      "lastPushDirHash": "b6gxlEMOHhPkGtIcSS7f+zuHHZg="
+      "lastPushDirHash": "8Zi+AYluGutwL018cQMQyZ1gEy8="
     },
     "fortknoxrestapi": {
       "service": "API Gateway",
@@ -72,13 +75,13 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/api/fortknoxrestapi-cloudformation-template.json",
         "logicalId": "apifortknoxrestapi"
       },
-      "lastPushTimeStamp": "2024-06-07T02:28:11.436Z",
+      "lastPushTimeStamp": "2024-07-07T17:21:48.767Z",
       "output": {
         "ApiName": "fortknoxrestapi",
         "RootUrl": "https://88farqqqyb.execute-api.us-east-1.amazonaws.com/dev",
         "ApiId": "88farqqqyb"
       },
-      "lastPushDirHash": "4nt0PXElo3L5+5QKBV+rCe07rTo="
+      "lastPushDirHash": "xU5iESxvB15W44dIS3t5YS1E7YI="
     }
   },
   "auth": {
@@ -111,7 +114,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/auth/fortknoxv1fd5af9b7-cloudformation-template.json",
         "logicalId": "authfortknoxv1fd5af9b7"
       },
-      "lastPushTimeStamp": "2024-06-07T02:28:11.438Z",
+      "lastPushTimeStamp": "2024-07-07T17:21:48.772Z",
       "output": {
         "UserPoolId": "us-east-1_VfQVnh7Bk",
         "AppClientIDWeb": "msa7qtv06lladaca1t5bumske",
@@ -129,19 +132,19 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2024-06-07T02:27:06.106Z",
+      "lastBuildTimeStamp": "2024-06-13T18:02:06.707Z",
       "lastBuildType": "PROD",
-      "lastPackageTimeStamp": "2024-06-07T02:27:07.016Z",
-      "distZipFilename": "retoolembedfunctin-504e3265357332313173-build.zip",
+      "lastPackageTimeStamp": "2024-06-13T18:02:07.616Z",
+      "distZipFilename": "retoolembedfunctin-7376794f6f577a2b7541-build.zip",
       "s3Bucket": {
         "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-        "s3Key": "amplify-builds/retoolembedfunctin-504e3265357332313173-build.zip"
+        "s3Key": "amplify-builds/retoolembedfunctin-7376794f6f577a2b7541-build.zip"
       },
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/retoolembedfunctin-cloudformation-template.json",
         "logicalId": "functionretoolembedfunctin"
       },
-      "lastPushTimeStamp": "2024-06-07T02:28:11.979Z",
+      "lastPushTimeStamp": "2024-07-07T17:21:48.773Z",
       "output": {
         "LambdaExecutionRoleArn": "arn:aws:iam::078918894010:role/fortknoxv1LambdaRolef4ce6183-dev",
         "Region": "us-east-1",
@@ -149,7 +152,33 @@
         "Name": "retoolembedfunctin-dev",
         "LambdaExecutionRole": "fortknoxv1LambdaRolef4ce6183-dev"
       },
-      "lastPushDirHash": "sUCBTqf4mAMOBf4HbOgAYL/MVXI="
+      "lastPushDirHash": "edGnXIkPzdppSm/RP4l7pEq7q04="
+    },
+    "openaiFunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2024-07-07T17:20:42.897Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2024-07-07T17:20:44.246Z",
+      "distZipFilename": "openaiFunction-3377734f636d7451774d-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
+        "s3Key": "amplify-builds/openaiFunction-3377734f636d7451774d-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/openaiFunction-cloudformation-template.json",
+        "logicalId": "functionopenaiFunction"
+      },
+      "lastPushTimeStamp": "2024-07-07T17:21:49.391Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::078918894010:role/fortknoxv1LambdaRole350ab80a-dev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:078918894010:function:openaiFunction-dev",
+        "Name": "openaiFunction-dev",
+        "LambdaExecutionRole": "fortknoxv1LambdaRole350ab80a-dev"
+      },
+      "lastPushDirHash": "fEVAWPwgcGThAmc/UJNKEHkQxL0="
     }
   }
 }

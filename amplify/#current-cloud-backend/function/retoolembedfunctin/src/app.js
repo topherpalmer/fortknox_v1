@@ -54,11 +54,11 @@ app.post('/embed', function(req, res) {
     "groupIds": [
       3117369
     ],
-    "externalIdentifier": "2db6bd4c-84e8-43ee-ad38-4e06ed2614e8",
+    "externalIdentifier": "2db6bd4c-84e8-43ee-ad38-4e06ed2614e8-v2",
     "userInfo": {
       "firstName": "Chris",
       "lastName": "Palmer",
-      "email": "chrispalmer@undefeatedsoftware.com"
+      "email": "topherpalmer@gmail.com"
     }
   });
   

@@ -1,0 +1,11 @@
+{
+  "httpMethod": "POST",
+  "path": "/newVendorWire",
+  "queryStringParameters": {
+    "limit": "10"
+  },
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"newMessage\":\"topherpalmer@gmail.com\", \"previousMessages\":[], \"wireOrigination\":\"email\", \"emailAddressOrigination\":\"topherpalmer@gmail.com\", \"dateToSendWire\":\"\", \"routingNumber\":\"883635555333\", \"accountNumber\":\"8837373hhehdgee\", \"vendorName\":\"Polsinelli\", \"vendorEmail\":\"cstout@polsinelli.com\", \"addressLine1\":\"900 W 48th Pl\", \"addressLine2\":\"\", \"city\":\"Kansas City\", \"state\":\"MO\", \"zipCode\":\"64112\", \"accountToSendFrom\":\"888888888\", \"phoneNUmber\":\"816-753-1000\"}"
+}

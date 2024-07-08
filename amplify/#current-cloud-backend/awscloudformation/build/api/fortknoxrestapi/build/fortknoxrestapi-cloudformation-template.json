@@ -1,5 +1,5 @@
 {
-  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.12.1\",\"stackType\":\"api-API Gateway\",\"metadata\":{}}",
+  "Description": "API Gateway Resource for AWS Amplify CLI",
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
     "functionretoolembedfunctinName": {
@@ -368,7 +368,7 @@
         "Name": "fortknoxrestapi"
       }
     },
-    "fortknoxrestapiDefault4XXResponse0f28dcb2": {
+    "fortknoxrestapiDefault4XXResponsec0af41a4": {
       "Type": "AWS::ApiGateway::GatewayResponse",
       "Properties": {
         "ResponseType": "DEFAULT_4XX",
@@ -383,7 +383,7 @@
         }
       }
     },
-    "fortknoxrestapiDefault5XXResponse0f28dcb2": {
+    "fortknoxrestapiDefault5XXResponsec0af41a4": {
       "Type": "AWS::ApiGateway::GatewayResponse",
       "Properties": {
         "ResponseType": "DEFAULT_5XX",
@@ -398,7 +398,7 @@
         }
       }
     },
-    "DeploymentAPIGWfortknoxrestapi15d3f048": {
+    "DeploymentAPIGWfortknoxrestapic56afe89": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -416,8 +416,8 @@
         }
       },
       "DependsOn": [
-        "fortknoxrestapiDefault4XXResponse0f28dcb2",
-        "fortknoxrestapiDefault5XXResponse0f28dcb2"
+        "fortknoxrestapiDefault4XXResponsec0af41a4",
+        "fortknoxrestapiDefault5XXResponsec0af41a4"
       ]
     }
   }

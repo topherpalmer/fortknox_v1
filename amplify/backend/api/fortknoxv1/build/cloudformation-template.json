@@ -8,6 +8,12 @@
             "Type": "String",
             "Default": "AppSyncSimpleTransform"
         },
+        "authRoleName": {
+            "Type": "String"
+        },
+        "unauthRoleName": {
+            "Type": "String"
+        },
         "AuthCognitoUserPoolId": {
             "Type": "String"
         },
@@ -87,6 +93,9 @@
                                 "Ref": "AuthCognitoUserPoolId"
                             }
                         }
+                    },
+                    {
+                        "AuthenticationType": "AWS_IAM"
                     }
                 ]
             }
@@ -128,7 +137,7 @@
                     ]
                 },
                 "Description": "fortknoxapikey",
-                "Expires": 1749263210
+                "Expires": 1751918510
             }
         },
         "GraphQLAPINONEDS95A13CF0": {
@@ -377,6 +386,12 @@
                     },
                     "referencetotransformerrootstackS3DeploymentRootKeyA71EA735Ref": {
                         "Ref": "S3DeploymentRootKey"
+                    },
+                    "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+                        "Ref": "authRoleName"
+                    },
+                    "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+                        "Ref": "unauthRoleName"
                     }
                 }
             },
@@ -453,6 +468,12 @@
                             "User",
                             "Outputs.transformerrootstackUserQuerygetUserpostAuth0FunctionQuerygetUserpostAuth0FunctionAppSyncFunction083DF5E5FunctionId"
                         ]
+                    },
+                    "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+                        "Ref": "authRoleName"
+                    },
+                    "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+                        "Ref": "unauthRoleName"
                     },
                     "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserMutationcreateUserinit0FunctionMutationcreateUserinit0FunctionAppSyncFunction5CF77F6AFunctionId": {
                         "Fn::GetAtt": [
@@ -559,6 +580,12 @@
                             "User",
                             "Outputs.transformerrootstackUserQuerygetUserpostAuth0FunctionQuerygetUserpostAuth0FunctionAppSyncFunction083DF5E5FunctionId"
                         ]
+                    },
+                    "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+                        "Ref": "authRoleName"
+                    },
+                    "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+                        "Ref": "unauthRoleName"
                     },
                     "referencetotransformerrootstackGraphQLAPINONEDS2BA9D1C8Name": {
                         "Fn::GetAtt": [
@@ -672,6 +699,12 @@
                             "Outputs.transformerrootstackUserQuerygetUserpostAuth0FunctionQuerygetUserpostAuth0FunctionAppSyncFunction083DF5E5FunctionId"
                         ]
                     },
+                    "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+                        "Ref": "authRoleName"
+                    },
+                    "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+                        "Ref": "unauthRoleName"
+                    },
                     "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserMutationcreateUserinit0FunctionMutationcreateUserinit0FunctionAppSyncFunction5CF77F6AFunctionId": {
                         "Fn::GetAtt": [
                             "User",
@@ -777,6 +810,12 @@
                             "User",
                             "Outputs.transformerrootstackUserQuerygetUserpostAuth0FunctionQuerygetUserpostAuth0FunctionAppSyncFunction083DF5E5FunctionId"
                         ]
+                    },
+                    "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+                        "Ref": "authRoleName"
+                    },
+                    "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+                        "Ref": "unauthRoleName"
                     },
                     "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserMutationcreateUserinit0FunctionMutationcreateUserinit0FunctionAppSyncFunction5CF77F6AFunctionId": {
                         "Fn::GetAtt": [
@@ -884,6 +923,12 @@
                             "Outputs.transformerrootstackUserQuerygetUserpostAuth0FunctionQuerygetUserpostAuth0FunctionAppSyncFunction083DF5E5FunctionId"
                         ]
                     },
+                    "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+                        "Ref": "authRoleName"
+                    },
+                    "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+                        "Ref": "unauthRoleName"
+                    },
                     "referencetotransformerrootstackUserNestedStackUserNestedStackResource01084C14OutputstransformerrootstackUserMutationcreateUserinit0FunctionMutationcreateUserinit0FunctionAppSyncFunction5CF77F6AFunctionId": {
                         "Fn::GetAtt": [
                             "User",
@@ -977,6 +1022,12 @@
                             "Account",
                             "Outputs.transformerrootstackAccountAccountTable80987830Ref"
                         ]
+                    },
+                    "referencetotransformerrootstackauthRoleNameFB872D50Ref": {
+                        "Ref": "authRoleName"
+                    },
+                    "referencetotransformerrootstackunauthRoleName49F3C1FERef": {
+                        "Ref": "unauthRoleName"
                     },
                     "referencetotransformerrootstackProfileNestedStackProfileNestedStackResource2A51D492OutputstransformerrootstackProfileProfileDataSource28492795Name": {
                         "Fn::GetAtt": [

@@ -166,8 +166,14 @@
               "Outputs.UserPoolId"
             ]
           },
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
           "S3DeploymentBucket": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "S3DeploymentRootKey": "amplify-appsync-files/909d8bcecd34eb1b62e08c366874478c2de9f121",
+          "S3DeploymentRootKey": "amplify-appsync-files/4712a29f418cbef4cbd82690a56ecd9e4eff4005",
           "env": "dev"
         }
       }
@@ -253,7 +259,18 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/retoolembedfunctin-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/retoolembedfunctin-504e3265357332313173-build.zip",
+          "s3Key": "amplify-builds/retoolembedfunctin-7376794f6f577a2b7541-build.zip",
+          "env": "dev"
+        }
+      }
+    },
+    "functionopenaiFunction": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/openaiFunction-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
+          "s3Key": "amplify-builds/openaiFunction-3377734f636d7451774d-build.zip",
           "env": "dev"
         }
       }

@@ -4,7 +4,7 @@
 #⚠️  WARNING: your GraphQL API currently allows public create, read, update, and delete access to all models via an API Key. To configure PRODUCTION-READY authorization rules, review: https://docs.amplify.aws/cli/graphql/authorization-rules
 # AmplifyAdmin
 
-type User @model @auth(rules: [{ allow: private}]) {
+type User @model @auth(rules: [{allow: public}]) {
   id: ID!
   type: String
   name: String
@@ -12,14 +12,14 @@ type User @model @auth(rules: [{ allow: private}]) {
   status: String
   profile: Profile @hasOne
 }
-type Profile @model @auth(rules: [{ allow: private}]) {
+type Profile @model @auth(rules: [{allow: public}]) {
   id: ID!
   type: String
   name: String
   businessName: String
   accounts: [Account] @hasMany(indexName: "byAccountForProfileById", fields: ["id"])
 }
-type Account @model @auth(rules: [{ allow: private}]) {
+type Account @model @auth(rules: [{allow: public}]) {
   id: ID!
   routingNumber: String
   achNumber: String
@@ -32,12 +32,12 @@ type Account @model @auth(rules: [{ allow: private}]) {
   associatedEmail: String
   address:Address @hasOne
 }
-type Bank @model @auth(rules: [{ allow: private}]) {
+type Bank @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String
 }
 
-type TrxnAgreement @model @auth(rules: [{ allow: private}]) {
+type TrxnAgreement @model @auth(rules: [{ allow: public}]) {
   id: ID!
   status: String
   txnAmount: String
@@ -50,7 +50,7 @@ type TrxnAgreement @model @auth(rules: [{ allow: private}]) {
   receiverUserName: String
 }
 
-type Address @model @auth(rules: [{ allow: private}]) {
+type Address @model @auth(rules: [{ allow: public}]) {
   id: ID!
   status: String
   addressLine1: String
