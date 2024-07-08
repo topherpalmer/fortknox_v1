@@ -16,9 +16,10 @@ import { post, get } from 'aws-amplify/api';
 import { Amplify } from "aws-amplify";
 import { Row, Container } from "reactstrap";
 
+
 const image = {uri: '/images/MyFortKnox_FlyerDraft.png'};
 
-
+ 
 function App({signOut}) {
 
   const [retoolEmbedUrl, setRetoolEmbedUrl] = useState("");
@@ -27,15 +28,15 @@ function App({signOut}) {
     //{"success":"embed post call succeed!","url":"/embed","body":{"embedUrl":"https://retooldev.myfortknox.co/embed-redirect?nonce=e7ac0370-caee-4988-b22c-e6d45957972f&destination=%2Fembedded%2Fauthed%2F6b79c648-0bce-11ef-9ee7-8b6ef326de56"}}
 
 
-    try {
-
-      const restOperation = await post({
+    try { 
+ 
+      const restOperation = post({
         apiName: 'fortknoxrestapi',
         path: '/embed'
         // options: {
         //   body: {
         //     message: 'Mow the lawn'
-        //   }
+        //   } 
         // }
       });
   
@@ -55,12 +56,16 @@ function App({signOut}) {
   }, [])
   return (
     retoolEmbedUrl && (
-      <Container maxWidth={false} disableGutters>
-        <Retool url={retoolEmbedUrl} />
-      </Container>
-    )
-  );
 
+      <div class="parent-container" style={{height: 1000}}>
+           <Retool url={retoolEmbedUrl} frameborder="0" allowfullscreen class="child-container"/>
+      </div>
+      // <Container class="parent-container">
+      //   <Retool url={retoolEmbedUrl} class="child-container"/>
+      // </Container>
+    )
+  );   
+ 
     // return (
     //   <View className="App">
     //     <Card>
@@ -98,6 +103,7 @@ class App extends Component {
 			</div>
 		);
 	}
-}
+}  
 
 export default App;*/
+ 

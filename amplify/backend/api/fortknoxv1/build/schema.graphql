@@ -1,4 +1,4 @@
-type User @aws_cognito_user_pools {
+type User @aws_iam @aws_api_key {
   id: ID!
   type: String
   name: String
@@ -13,7 +13,7 @@ type User @aws_cognito_user_pools {
   userProfileId: ID
 }
 
-type Profile @aws_cognito_user_pools {
+type Profile @aws_iam @aws_api_key {
   id: ID!
   type: String
   name: String
@@ -26,7 +26,7 @@ type Profile @aws_cognito_user_pools {
   _lastChangedAt: AWSTimestamp!
 }
 
-type Account @aws_cognito_user_pools {
+type Account @aws_iam @aws_api_key {
   id: ID!
   routingNumber: String
   achNumber: String
@@ -47,7 +47,7 @@ type Account @aws_cognito_user_pools {
   accountAddressId: ID
 }
 
-type Bank @aws_cognito_user_pools {
+type Bank @aws_iam @aws_api_key {
   id: ID!
   name: String
   createdAt: AWSDateTime!
@@ -57,7 +57,7 @@ type Bank @aws_cognito_user_pools {
   _lastChangedAt: AWSTimestamp!
 }
 
-type TrxnAgreement @aws_cognito_user_pools {
+type TrxnAgreement @aws_iam @aws_api_key {
   id: ID!
   status: String
   txnAmount: String
@@ -77,7 +77,7 @@ type TrxnAgreement @aws_cognito_user_pools {
   trxnAgreementReceiverProfileAccountId: ID
 }
 
-type Address @aws_cognito_user_pools {
+type Address @aws_iam @aws_api_key {
   id: ID!
   status: String
   addressLine1: String
@@ -242,7 +242,7 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelUserConnection @aws_cognito_user_pools {
+type ModelUserConnection @aws_api_key @aws_iam {
   items: [User]!
   nextToken: String
   startedAt: AWSTimestamp
@@ -264,25 +264,25 @@ input ModelUserFilterInput {
 }
 
 type Query {
-  getUser(id: ID!): User @aws_cognito_user_pools
-  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection @aws_cognito_user_pools
-  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection @aws_cognito_user_pools
-  getProfile(id: ID!): Profile @aws_cognito_user_pools
-  listProfiles(filter: ModelProfileFilterInput, limit: Int, nextToken: String): ModelProfileConnection @aws_cognito_user_pools
-  syncProfiles(filter: ModelProfileFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelProfileConnection @aws_cognito_user_pools
-  getAccount(id: ID!): Account @aws_cognito_user_pools
-  listAccounts(filter: ModelAccountFilterInput, limit: Int, nextToken: String): ModelAccountConnection @aws_cognito_user_pools
-  syncAccounts(filter: ModelAccountFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelAccountConnection @aws_cognito_user_pools
-  accountsByProfileId(profileId: ID!, sortDirection: ModelSortDirection, filter: ModelAccountFilterInput, limit: Int, nextToken: String): ModelAccountConnection @aws_cognito_user_pools
-  getBank(id: ID!): Bank @aws_cognito_user_pools
-  listBanks(filter: ModelBankFilterInput, limit: Int, nextToken: String): ModelBankConnection @aws_cognito_user_pools
-  syncBanks(filter: ModelBankFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelBankConnection @aws_cognito_user_pools
-  getTrxnAgreement(id: ID!): TrxnAgreement @aws_cognito_user_pools
-  listTrxnAgreements(filter: ModelTrxnAgreementFilterInput, limit: Int, nextToken: String): ModelTrxnAgreementConnection @aws_cognito_user_pools
-  syncTrxnAgreements(filter: ModelTrxnAgreementFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelTrxnAgreementConnection @aws_cognito_user_pools
-  getAddress(id: ID!): Address @aws_cognito_user_pools
-  listAddresses(filter: ModelAddressFilterInput, limit: Int, nextToken: String): ModelAddressConnection @aws_cognito_user_pools
-  syncAddresses(filter: ModelAddressFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelAddressConnection @aws_cognito_user_pools
+  getUser(id: ID!): User @aws_api_key @aws_iam
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection @aws_api_key @aws_iam
+  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection @aws_api_key @aws_iam
+  getProfile(id: ID!): Profile @aws_api_key @aws_iam
+  listProfiles(filter: ModelProfileFilterInput, limit: Int, nextToken: String): ModelProfileConnection @aws_api_key @aws_iam
+  syncProfiles(filter: ModelProfileFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelProfileConnection @aws_api_key @aws_iam
+  getAccount(id: ID!): Account @aws_api_key @aws_iam
+  listAccounts(filter: ModelAccountFilterInput, limit: Int, nextToken: String): ModelAccountConnection @aws_api_key @aws_iam
+  syncAccounts(filter: ModelAccountFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelAccountConnection @aws_api_key @aws_iam
+  accountsByProfileId(profileId: ID!, sortDirection: ModelSortDirection, filter: ModelAccountFilterInput, limit: Int, nextToken: String): ModelAccountConnection @aws_api_key @aws_iam
+  getBank(id: ID!): Bank @aws_api_key @aws_iam
+  listBanks(filter: ModelBankFilterInput, limit: Int, nextToken: String): ModelBankConnection @aws_api_key @aws_iam
+  syncBanks(filter: ModelBankFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelBankConnection @aws_api_key @aws_iam
+  getTrxnAgreement(id: ID!): TrxnAgreement @aws_api_key @aws_iam
+  listTrxnAgreements(filter: ModelTrxnAgreementFilterInput, limit: Int, nextToken: String): ModelTrxnAgreementConnection @aws_api_key @aws_iam
+  syncTrxnAgreements(filter: ModelTrxnAgreementFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelTrxnAgreementConnection @aws_api_key @aws_iam
+  getAddress(id: ID!): Address @aws_api_key @aws_iam
+  listAddresses(filter: ModelAddressFilterInput, limit: Int, nextToken: String): ModelAddressConnection @aws_api_key @aws_iam
+  syncAddresses(filter: ModelAddressFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelAddressConnection @aws_api_key @aws_iam
 }
 
 input ModelUserConditionInput {
@@ -325,24 +325,24 @@ input DeleteUserInput {
 }
 
 type Mutation {
-  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User @aws_cognito_user_pools
-  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User @aws_cognito_user_pools
-  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User @aws_cognito_user_pools
-  createProfile(input: CreateProfileInput!, condition: ModelProfileConditionInput): Profile @aws_cognito_user_pools
-  updateProfile(input: UpdateProfileInput!, condition: ModelProfileConditionInput): Profile @aws_cognito_user_pools
-  deleteProfile(input: DeleteProfileInput!, condition: ModelProfileConditionInput): Profile @aws_cognito_user_pools
-  createAccount(input: CreateAccountInput!, condition: ModelAccountConditionInput): Account @aws_cognito_user_pools
-  updateAccount(input: UpdateAccountInput!, condition: ModelAccountConditionInput): Account @aws_cognito_user_pools
-  deleteAccount(input: DeleteAccountInput!, condition: ModelAccountConditionInput): Account @aws_cognito_user_pools
-  createBank(input: CreateBankInput!, condition: ModelBankConditionInput): Bank @aws_cognito_user_pools
-  updateBank(input: UpdateBankInput!, condition: ModelBankConditionInput): Bank @aws_cognito_user_pools
-  deleteBank(input: DeleteBankInput!, condition: ModelBankConditionInput): Bank @aws_cognito_user_pools
-  createTrxnAgreement(input: CreateTrxnAgreementInput!, condition: ModelTrxnAgreementConditionInput): TrxnAgreement @aws_cognito_user_pools
-  updateTrxnAgreement(input: UpdateTrxnAgreementInput!, condition: ModelTrxnAgreementConditionInput): TrxnAgreement @aws_cognito_user_pools
-  deleteTrxnAgreement(input: DeleteTrxnAgreementInput!, condition: ModelTrxnAgreementConditionInput): TrxnAgreement @aws_cognito_user_pools
-  createAddress(input: CreateAddressInput!, condition: ModelAddressConditionInput): Address @aws_cognito_user_pools
-  updateAddress(input: UpdateAddressInput!, condition: ModelAddressConditionInput): Address @aws_cognito_user_pools
-  deleteAddress(input: DeleteAddressInput!, condition: ModelAddressConditionInput): Address @aws_cognito_user_pools
+  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  createProfile(input: CreateProfileInput!, condition: ModelProfileConditionInput): Profile @aws_api_key @aws_iam
+  updateProfile(input: UpdateProfileInput!, condition: ModelProfileConditionInput): Profile @aws_api_key @aws_iam
+  deleteProfile(input: DeleteProfileInput!, condition: ModelProfileConditionInput): Profile @aws_api_key @aws_iam
+  createAccount(input: CreateAccountInput!, condition: ModelAccountConditionInput): Account @aws_api_key @aws_iam
+  updateAccount(input: UpdateAccountInput!, condition: ModelAccountConditionInput): Account @aws_api_key @aws_iam
+  deleteAccount(input: DeleteAccountInput!, condition: ModelAccountConditionInput): Account @aws_api_key @aws_iam
+  createBank(input: CreateBankInput!, condition: ModelBankConditionInput): Bank @aws_api_key @aws_iam
+  updateBank(input: UpdateBankInput!, condition: ModelBankConditionInput): Bank @aws_api_key @aws_iam
+  deleteBank(input: DeleteBankInput!, condition: ModelBankConditionInput): Bank @aws_api_key @aws_iam
+  createTrxnAgreement(input: CreateTrxnAgreementInput!, condition: ModelTrxnAgreementConditionInput): TrxnAgreement @aws_api_key @aws_iam
+  updateTrxnAgreement(input: UpdateTrxnAgreementInput!, condition: ModelTrxnAgreementConditionInput): TrxnAgreement @aws_api_key @aws_iam
+  deleteTrxnAgreement(input: DeleteTrxnAgreementInput!, condition: ModelTrxnAgreementConditionInput): TrxnAgreement @aws_api_key @aws_iam
+  createAddress(input: CreateAddressInput!, condition: ModelAddressConditionInput): Address @aws_api_key @aws_iam
+  updateAddress(input: UpdateAddressInput!, condition: ModelAddressConditionInput): Address @aws_api_key @aws_iam
+  deleteAddress(input: DeleteAddressInput!, condition: ModelAddressConditionInput): Address @aws_api_key @aws_iam
 }
 
 input ModelSubscriptionUserFilterInput {
@@ -360,27 +360,27 @@ input ModelSubscriptionUserFilterInput {
 }
 
 type Subscription {
-  onCreateUser(filter: ModelSubscriptionUserFilterInput): User @aws_subscribe(mutations: ["createUser"]) @aws_cognito_user_pools
-  onUpdateUser(filter: ModelSubscriptionUserFilterInput): User @aws_subscribe(mutations: ["updateUser"]) @aws_cognito_user_pools
-  onDeleteUser(filter: ModelSubscriptionUserFilterInput): User @aws_subscribe(mutations: ["deleteUser"]) @aws_cognito_user_pools
-  onCreateProfile(filter: ModelSubscriptionProfileFilterInput): Profile @aws_subscribe(mutations: ["createProfile"]) @aws_cognito_user_pools
-  onUpdateProfile(filter: ModelSubscriptionProfileFilterInput): Profile @aws_subscribe(mutations: ["updateProfile"]) @aws_cognito_user_pools
-  onDeleteProfile(filter: ModelSubscriptionProfileFilterInput): Profile @aws_subscribe(mutations: ["deleteProfile"]) @aws_cognito_user_pools
-  onCreateAccount(filter: ModelSubscriptionAccountFilterInput): Account @aws_subscribe(mutations: ["createAccount"]) @aws_cognito_user_pools
-  onUpdateAccount(filter: ModelSubscriptionAccountFilterInput): Account @aws_subscribe(mutations: ["updateAccount"]) @aws_cognito_user_pools
-  onDeleteAccount(filter: ModelSubscriptionAccountFilterInput): Account @aws_subscribe(mutations: ["deleteAccount"]) @aws_cognito_user_pools
-  onCreateBank(filter: ModelSubscriptionBankFilterInput): Bank @aws_subscribe(mutations: ["createBank"]) @aws_cognito_user_pools
-  onUpdateBank(filter: ModelSubscriptionBankFilterInput): Bank @aws_subscribe(mutations: ["updateBank"]) @aws_cognito_user_pools
-  onDeleteBank(filter: ModelSubscriptionBankFilterInput): Bank @aws_subscribe(mutations: ["deleteBank"]) @aws_cognito_user_pools
-  onCreateTrxnAgreement(filter: ModelSubscriptionTrxnAgreementFilterInput): TrxnAgreement @aws_subscribe(mutations: ["createTrxnAgreement"]) @aws_cognito_user_pools
-  onUpdateTrxnAgreement(filter: ModelSubscriptionTrxnAgreementFilterInput): TrxnAgreement @aws_subscribe(mutations: ["updateTrxnAgreement"]) @aws_cognito_user_pools
-  onDeleteTrxnAgreement(filter: ModelSubscriptionTrxnAgreementFilterInput): TrxnAgreement @aws_subscribe(mutations: ["deleteTrxnAgreement"]) @aws_cognito_user_pools
-  onCreateAddress(filter: ModelSubscriptionAddressFilterInput): Address @aws_subscribe(mutations: ["createAddress"]) @aws_cognito_user_pools
-  onUpdateAddress(filter: ModelSubscriptionAddressFilterInput): Address @aws_subscribe(mutations: ["updateAddress"]) @aws_cognito_user_pools
-  onDeleteAddress(filter: ModelSubscriptionAddressFilterInput): Address @aws_subscribe(mutations: ["deleteAddress"]) @aws_cognito_user_pools
+  onCreateUser(filter: ModelSubscriptionUserFilterInput): User @aws_subscribe(mutations: ["createUser"]) @aws_api_key @aws_iam
+  onUpdateUser(filter: ModelSubscriptionUserFilterInput): User @aws_subscribe(mutations: ["updateUser"]) @aws_api_key @aws_iam
+  onDeleteUser(filter: ModelSubscriptionUserFilterInput): User @aws_subscribe(mutations: ["deleteUser"]) @aws_api_key @aws_iam
+  onCreateProfile(filter: ModelSubscriptionProfileFilterInput): Profile @aws_subscribe(mutations: ["createProfile"]) @aws_api_key @aws_iam
+  onUpdateProfile(filter: ModelSubscriptionProfileFilterInput): Profile @aws_subscribe(mutations: ["updateProfile"]) @aws_api_key @aws_iam
+  onDeleteProfile(filter: ModelSubscriptionProfileFilterInput): Profile @aws_subscribe(mutations: ["deleteProfile"]) @aws_api_key @aws_iam
+  onCreateAccount(filter: ModelSubscriptionAccountFilterInput): Account @aws_subscribe(mutations: ["createAccount"]) @aws_api_key @aws_iam
+  onUpdateAccount(filter: ModelSubscriptionAccountFilterInput): Account @aws_subscribe(mutations: ["updateAccount"]) @aws_api_key @aws_iam
+  onDeleteAccount(filter: ModelSubscriptionAccountFilterInput): Account @aws_subscribe(mutations: ["deleteAccount"]) @aws_api_key @aws_iam
+  onCreateBank(filter: ModelSubscriptionBankFilterInput): Bank @aws_subscribe(mutations: ["createBank"]) @aws_api_key @aws_iam
+  onUpdateBank(filter: ModelSubscriptionBankFilterInput): Bank @aws_subscribe(mutations: ["updateBank"]) @aws_api_key @aws_iam
+  onDeleteBank(filter: ModelSubscriptionBankFilterInput): Bank @aws_subscribe(mutations: ["deleteBank"]) @aws_api_key @aws_iam
+  onCreateTrxnAgreement(filter: ModelSubscriptionTrxnAgreementFilterInput): TrxnAgreement @aws_subscribe(mutations: ["createTrxnAgreement"]) @aws_api_key @aws_iam
+  onUpdateTrxnAgreement(filter: ModelSubscriptionTrxnAgreementFilterInput): TrxnAgreement @aws_subscribe(mutations: ["updateTrxnAgreement"]) @aws_api_key @aws_iam
+  onDeleteTrxnAgreement(filter: ModelSubscriptionTrxnAgreementFilterInput): TrxnAgreement @aws_subscribe(mutations: ["deleteTrxnAgreement"]) @aws_api_key @aws_iam
+  onCreateAddress(filter: ModelSubscriptionAddressFilterInput): Address @aws_subscribe(mutations: ["createAddress"]) @aws_api_key @aws_iam
+  onUpdateAddress(filter: ModelSubscriptionAddressFilterInput): Address @aws_subscribe(mutations: ["updateAddress"]) @aws_api_key @aws_iam
+  onDeleteAddress(filter: ModelSubscriptionAddressFilterInput): Address @aws_subscribe(mutations: ["deleteAddress"]) @aws_api_key @aws_iam
 }
 
-type ModelProfileConnection @aws_cognito_user_pools {
+type ModelProfileConnection @aws_api_key @aws_iam {
   items: [Profile]!
   nextToken: String
   startedAt: AWSTimestamp
@@ -444,7 +444,7 @@ input ModelSubscriptionProfileFilterInput {
   _deleted: ModelBooleanInput
 }
 
-type ModelAccountConnection @aws_cognito_user_pools {
+type ModelAccountConnection @aws_iam @aws_api_key {
   items: [Account]!
   nextToken: String
   startedAt: AWSTimestamp
@@ -543,7 +543,7 @@ input ModelSubscriptionAccountFilterInput {
   accountAddressId: ModelSubscriptionIDInput
 }
 
-type ModelBankConnection @aws_cognito_user_pools {
+type ModelBankConnection @aws_api_key @aws_iam {
   items: [Bank]!
   nextToken: String
   startedAt: AWSTimestamp
@@ -597,7 +597,7 @@ input ModelSubscriptionBankFilterInput {
   _deleted: ModelBooleanInput
 }
 
-type ModelTrxnAgreementConnection @aws_cognito_user_pools {
+type ModelTrxnAgreementConnection @aws_api_key @aws_iam {
   items: [TrxnAgreement]!
   nextToken: String
   startedAt: AWSTimestamp
@@ -691,7 +691,7 @@ input ModelSubscriptionTrxnAgreementFilterInput {
   trxnAgreementReceiverProfileAccountId: ModelSubscriptionIDInput
 }
 
-type ModelAddressConnection @aws_cognito_user_pools {
+type ModelAddressConnection @aws_api_key @aws_iam {
   items: [Address]!
   nextToken: String
   startedAt: AWSTimestamp

@@ -32,6 +32,9 @@
               "userPoolConfig": {
                 "userPoolId": "authfortknoxv1fd5af9b7"
               }
+            },
+            {
+              "authenticationType": "AWS_IAM"
             }
           ],
           "defaultAuthentication": {
@@ -77,6 +80,11 @@
     }
   },
   "function": {
+    "openaiFunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "retoolembedfunctin": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -84,6 +92,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_openaiFunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "openaiFunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_openaiFunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "openaiFunction"
+        }
+      ]
+    },
     "AMPLIFY_function_retoolembedfunctin_deploymentBucketName": {
       "usedBy": [
         {

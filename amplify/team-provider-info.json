@@ -18,7 +18,11 @@
       "function": {
         "retoolembedfunctin": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/retoolembedfunctin-504e3265357332313173-build.zip"
+          "s3Key": "amplify-builds/retoolembedfunctin-7376794f6f577a2b7541-build.zip"
+        },
+        "openaiFunction": {
+          "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
+          "s3Key": "amplify-builds/openaiFunction-3377734f636d7451774d-build.zip"
         }
       },
       "api": {

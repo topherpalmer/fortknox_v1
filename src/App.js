@@ -8,9 +8,11 @@ import {
   View,
   Card,
 } from "@aws-amplify/ui-react";
+//import OpenAIApp from './OpenAIApp';
 
 function App({ signOut }) {
   return (
+    // <div><OpenAIApp/></div>
     <View className="App">
       <Card>
         <Image src={logo} className="App-logo" alt="logo" />
