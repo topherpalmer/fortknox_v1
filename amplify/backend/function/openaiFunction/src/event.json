@@ -1,11 +1,13 @@
 {
   "httpMethod": "POST",
-  "path": "/newVendorWire",
+  "path": "/wires/newVendorWire",
   "queryStringParameters": {
     "limit": "10"
   },
   "headers": {
     "Content-Type": "application/json"
   },
-  "body": "{\"newMessage\":\"topherpalmer@gmail.com\", \"previousMessages\":[], \"wireOrigination\":\"email\", \"emailAddressOrigination\":\"topherpalmer@gmail.com\", \"dateToSendWire\":\"\", \"routingNumber\":\"883635555333\", \"accountNumber\":\"8837373hhehdgee\", \"vendorName\":\"Polsinelli\", \"vendorEmail\":\"cstout@polsinelli.com\", \"addressLine1\":\"900 W 48th Pl\", \"addressLine2\":\"\", \"city\":\"Kansas City\", \"state\":\"MO\", \"zipCode\":\"64112\", \"accountToSendFrom\":\"888888888\", \"phoneNUmber\":\"816-753-1000\"}"
+
+  "body": "{\"wireOrigination\":\"EMAIL\",\"emailAddressOrigination\":\"tropicalsmoothie@gmail.com\",\"nameOfPersonRequestCameFrom\":\"topherpalmer@gmail.com\",\"wireAmount\":\"5000\",\"dateToSendWire\":\"2024-07-08T17:57:02.024-0500\",\"routingNumber\":\"8883737377373\",\"accountNumber\":\"93983887373773\",\"vendorName\":\"Tropical Smoothie\",\"vendorEmail\":\"tropicalsmoothie@gmail.com\",\"addressLine1\":\"3148 SW Pergola Park Dr\",\"addressLine2\":\"\",\"city\":\"Lees Summit\",\"zipCode\":\"64081\",\"state\":\"MO\",\"accountToSendFrom\":\"\",\"vendorPhoneNumber\":\"8165223452\",\"newMessage\":\"topherpalmer@gmail.com\",\"previousMessages\":[]}"
+
 }

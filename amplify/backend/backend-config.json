@@ -9,6 +9,14 @@
           ],
           "category": "function",
           "resourceName": "retoolembedfunctin"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "openaiFunction"
         }
       ],
       "providerPlugin": "awscloudformation",

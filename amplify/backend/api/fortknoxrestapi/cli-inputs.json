@@ -7,6 +7,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/wires": {
+      "name": "/wires",
+      "lambdaFunction": "openaiFunction",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }
