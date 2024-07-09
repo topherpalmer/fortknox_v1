@@ -60,7 +60,7 @@ app.get('/item/*', function(req, res) {
     //zipCode(zipCodeInput)
     //accountToSendFrom(accountSelectInput)
     //vendorPhoneNumber(vendorPhoneNumberInput)
-app.post('/wires/newVendorWire', function(req, res) {
+app.post('/wires', function(req, res) {
 
   const body = req.body;
 

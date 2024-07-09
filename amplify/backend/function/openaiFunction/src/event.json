@@ -1,6 +1,6 @@
 {
   "httpMethod": "POST",
-  "path": "/wires/newVendorWire",
+  "path": "/wires",
   "queryStringParameters": {
     "limit": "10"
   },
