@@ -51,7 +51,7 @@
         "GraphQLAPIEndpointOutput": "https://yh6glc3yyrdv7jgqpu5buwcpdq.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-hw2tb42k4rajnhps23jv5d3fka"
       },
-      "lastPushTimeStamp": "2024-07-08T18:42:42.591Z",
+      "lastPushTimeStamp": "2024-07-09T02:40:14.816Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apifortknoxv1"
@@ -69,19 +69,27 @@
             "Name",
             "Arn"
           ]
+        },
+        {
+          "category": "function",
+          "resourceName": "openaiFunction",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
         }
       ],
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/api/fortknoxrestapi-cloudformation-template.json",
         "logicalId": "apifortknoxrestapi"
       },
-      "lastPushTimeStamp": "2024-07-08T18:42:39.818Z",
+      "lastPushTimeStamp": "2024-07-09T02:40:14.820Z",
       "output": {
         "ApiName": "fortknoxrestapi",
         "RootUrl": "https://88farqqqyb.execute-api.us-east-1.amazonaws.com/dev",
         "ApiId": "88farqqqyb"
       },
-      "lastPushDirHash": "xU5iESxvB15W44dIS3t5YS1E7YI="
+      "lastPushDirHash": "t2dd8epzB3O7Sir3azMd4NToSP4="
     }
   },
   "auth": {
@@ -114,7 +122,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/auth/fortknoxv1fd5af9b7-cloudformation-template.json",
         "logicalId": "authfortknoxv1fd5af9b7"
       },
-      "lastPushTimeStamp": "2024-07-08T18:42:39.821Z",
+      "lastPushTimeStamp": "2024-07-09T02:40:14.821Z",
       "output": {
         "UserPoolId": "us-east-1_VfQVnh7Bk",
         "AppClientIDWeb": "msa7qtv06lladaca1t5bumske",
@@ -144,7 +152,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/retoolembedfunctin-cloudformation-template.json",
         "logicalId": "functionretoolembedfunctin"
       },
-      "lastPushTimeStamp": "2024-07-08T18:42:39.822Z",
+      "lastPushTimeStamp": "2024-07-09T02:40:14.823Z",
       "output": {
         "LambdaExecutionRoleArn": "arn:aws:iam::078918894010:role/fortknoxv1LambdaRolef4ce6183-dev",
         "Region": "us-east-1",
@@ -158,19 +166,19 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2024-07-08T18:39:53.918Z",
-      "lastBuildType": "PROD",
-      "lastPackageTimeStamp": "2024-07-08T18:39:55.422Z",
-      "distZipFilename": "openaiFunction-4176786b43314f657336-build.zip",
+      "lastBuildTimeStamp": "2024-07-09T02:39:08.477Z",
+      "lastBuildType": "DEV",
+      "lastPackageTimeStamp": "2024-07-09T02:39:10.421Z",
+      "distZipFilename": "openaiFunction-777a7344616b68477236-build.zip",
       "s3Bucket": {
         "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-        "s3Key": "amplify-builds/openaiFunction-4176786b43314f657336-build.zip"
+        "s3Key": "amplify-builds/openaiFunction-777a7344616b68477236-build.zip"
       },
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/openaiFunction-cloudformation-template.json",
         "logicalId": "functionopenaiFunction"
       },
-      "lastPushTimeStamp": "2024-07-08T18:42:42.591Z",
+      "lastPushTimeStamp": "2024-07-09T02:40:15.470Z",
       "output": {
         "LambdaExecutionRoleArn": "arn:aws:iam::078918894010:role/fortknoxv1LambdaRole350ab80a-dev",
         "Region": "us-east-1",
@@ -178,8 +186,8 @@
         "Name": "openaiFunction-dev",
         "LambdaExecutionRole": "fortknoxv1LambdaRole350ab80a-dev"
       },
-      "lastPushDirHash": "B77fompiaqXeh93/1byVKq2Rrd4=",
-      "lastDevBuildTimeStamp": "2024-07-08T18:27:12.332Z"
+      "lastPushDirHash": "5YG1tXv2+gV+D2Xw2A5wmma7iQ0=",
+      "lastDevBuildTimeStamp": "2024-07-09T03:21:15.390Z"
     }
   }
 }

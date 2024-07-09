@@ -8,7 +8,7 @@ See the License for the specific language governing permissions and limitations 
 
 
 
-
+require('dotenv').config(); // Load environment variables
 const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
@@ -60,7 +60,7 @@ app.get('/item/*', function(req, res) {
     //zipCode(zipCodeInput)
     //accountToSendFrom(accountSelectInput)
     //vendorPhoneNumber(vendorPhoneNumberInput)
-app.post('/newVendorWire', function(req, res) {
+app.post('/wires/newVendorWire', function(req, res) {
 
   const body = req.body;
 
@@ -137,7 +137,7 @@ app.post('/newVendorWire', function(req, res) {
           const { Configuration, OpenAIApi, OpenAI } = require('openai');
           let openai;
           const instructions = ``;
-          openai = new OpenAI({ apiKey: 'sk-proj-GETCBWHqs2hmCWVWBEkbT3BlbkFJIqTs1zJvgvjDnQVTZHeU' });
+          openai = new OpenAI({ apiKey:process.env.REACT_APP_OPENAI_KEY });
 
           console.log("Calling chatgpt");
           const response = await openai.chat.completions.create({

@@ -195,6 +195,18 @@
               "Outputs.Arn"
             ]
           },
+          "functionopenaiFunctionName": {
+            "Fn::GetAtt": [
+              "functionopenaiFunction",
+              "Outputs.Name"
+            ]
+          },
+          "functionopenaiFunctionArn": {
+            "Fn::GetAtt": [
+              "functionopenaiFunction",
+              "Outputs.Arn"
+            ]
+          },
           "env": "dev"
         }
       }
@@ -270,7 +282,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/openaiFunction-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/openaiFunction-4176786b43314f657336-build.zip",
+          "s3Key": "amplify-builds/openaiFunction-777a7344616b68477236-build.zip",
           "env": "dev"
         }
       }
