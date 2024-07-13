@@ -18,7 +18,6 @@
 .env.test.local
 .env.production.local
 .env
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -46,3 +45,5 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+amplify/backend/function/openaiFunction/src/.env
+src/.env

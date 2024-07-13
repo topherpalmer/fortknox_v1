@@ -18,12 +18,13 @@
       "function": {
         "retoolembedfunctin": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/retoolembedfunctin-7376794f6f577a2b7541-build.zip"
+          "s3Key": "amplify-builds/retoolembedfunctin-4555784f714f63445778-build.zip"
         },
         "openaiFunction": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/openaiFunction-72764344516f4248364f-build.zip"
-        }
+          "s3Key": "amplify-builds/openaiFunction-7a576f676e7275457a4c-build.zip"
+        },
+        "fortknoxpdfuploads": {}
       },
       "api": {
         "fortknoxv1": {},

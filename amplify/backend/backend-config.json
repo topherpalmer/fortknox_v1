@@ -16,7 +16,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "openaiFunction"
+          "resourceName": "fortknoxpdfuploads"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -88,6 +88,11 @@
     }
   },
   "function": {
+    "fortknoxpdfuploads": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "openaiFunction": {
       "build": true,
       "providerPlugin": "awscloudformation",

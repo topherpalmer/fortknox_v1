@@ -10,7 +10,7 @@
     },
     "/wires": {
       "name": "/wires",
-      "lambdaFunction": "openaiFunction",
+      "lambdaFunction": "fortknoxpdfuploads",
       "permissions": {
         "setting": "open"
       }

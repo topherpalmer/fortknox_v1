@@ -1,0 +1,11 @@
+{
+  "httpMethod": "POST",
+  "path": "/invoicereader",
+  "queryStringParameters": {
+    "limit": "10"
+  },
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"fileName\":\"Invoice 21549.pdf\"}"
+}

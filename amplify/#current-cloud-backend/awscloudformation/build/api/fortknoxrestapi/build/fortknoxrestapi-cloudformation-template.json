@@ -10,13 +10,13 @@
       "Type": "String",
       "Default": "functionretoolembedfunctinArn"
     },
-    "functionopenaiFunctionName": {
+    "functionfortknoxpdfuploadsName": {
       "Type": "String",
-      "Default": "functionopenaiFunctionName"
+      "Default": "functionfortknoxpdfuploadsName"
     },
-    "functionopenaiFunctionArn": {
+    "functionfortknoxpdfuploadsArn": {
       "Type": "String",
-      "Default": "functionopenaiFunctionArn"
+      "Default": "functionfortknoxpdfuploadsArn"
     },
     "env": {
       "Type": "String"
@@ -103,12 +103,12 @@
         }
       }
     },
-    "functionopenaiFunctionPermissionfortknoxrestapi": {
+    "functionfortknoxpdfuploadsPermissionfortknoxrestapi": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "Action": "lambda:InvokeFunction",
         "FunctionName": {
-          "Ref": "functionopenaiFunctionName"
+          "Ref": "functionfortknoxpdfuploadsName"
         },
         "Principal": "apigateway.amazonaws.com",
         "SourceArn": {
@@ -448,7 +448,7 @@
                         },
                         ":lambda:path/2015-03-31/functions/",
                         {
-                          "Ref": "functionopenaiFunctionArn"
+                          "Ref": "functionfortknoxpdfuploadsArn"
                         },
                         "/invocations"
                       ]
@@ -543,7 +543,7 @@
                         },
                         ":lambda:path/2015-03-31/functions/",
                         {
-                          "Ref": "functionopenaiFunctionArn"
+                          "Ref": "functionfortknoxpdfuploadsArn"
                         },
                         "/invocations"
                       ]
@@ -596,7 +596,7 @@
         "Name": "fortknoxrestapi"
       }
     },
-    "fortknoxrestapiDefault4XXResponse58e2b600": {
+    "fortknoxrestapiDefault4XXResponsece19a4b7": {
       "Type": "AWS::ApiGateway::GatewayResponse",
       "Properties": {
         "ResponseParameters": {
@@ -611,7 +611,7 @@
         }
       }
     },
-    "fortknoxrestapiDefault5XXResponse58e2b600": {
+    "fortknoxrestapiDefault5XXResponsece19a4b7": {
       "Type": "AWS::ApiGateway::GatewayResponse",
       "Properties": {
         "ResponseParameters": {
@@ -626,7 +626,7 @@
         }
       }
     },
-    "DeploymentAPIGWfortknoxrestapi7fc5cc36": {
+    "DeploymentAPIGWfortknoxrestapi17f71b26": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "Description": "The Development stage deployment of your API.",
@@ -644,8 +644,8 @@
         }
       },
       "DependsOn": [
-        "fortknoxrestapiDefault4XXResponse58e2b600",
-        "fortknoxrestapiDefault5XXResponse58e2b600"
+        "fortknoxrestapiDefault4XXResponsece19a4b7",
+        "fortknoxrestapiDefault5XXResponsece19a4b7"
       ]
     }
   }
