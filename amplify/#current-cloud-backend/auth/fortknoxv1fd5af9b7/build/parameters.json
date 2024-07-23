@@ -1,6 +1,6 @@
 {
   "identityPoolName": "fortknoxv1fd5af9b7_identitypool_fd5af9b7",
-  "allowUnauthenticatedIdentities": false,
+  "allowUnauthenticatedIdentities": true,
   "resourceNameTruncated": "fortknfd5af9b7",
   "userPoolName": "fortknoxv1fd5af9b7_userpool_fd5af9b7",
   "autoVerifiedAttributes": [

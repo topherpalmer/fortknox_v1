@@ -1,3 +1,21 @@
 {
-  "lambdaLayers": []
+  "lambdaLayers": [],
+  "permissions": {
+    "auth": {
+      "fortknoxv1fd5af9b7": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "storage": {
+      "fortKnoxFileUpload": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  }
 }

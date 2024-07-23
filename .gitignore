@@ -44,6 +44,7 @@ amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
 **.sample
-#amplify-do-not-edit-end
 amplify/backend/function/openaiFunction/src/.env
+amplify/backend/function/fortknoxpdfuploads/src/.env
 src/.env
+#amplify-do-not-edit-end

@@ -51,7 +51,7 @@
         "GraphQLAPIEndpointOutput": "https://yh6glc3yyrdv7jgqpu5buwcpdq.appsync-api.us-east-1.amazonaws.com/graphql",
         "GraphQLAPIKeyOutput": "da2-hw2tb42k4rajnhps23jv5d3fka"
       },
-      "lastPushTimeStamp": "2024-07-13T16:49:53.714Z",
+      "lastPushTimeStamp": "2024-07-18T17:01:36.577Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apifortknoxv1"
@@ -83,13 +83,13 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/api/fortknoxrestapi-cloudformation-template.json",
         "logicalId": "apifortknoxrestapi"
       },
-      "lastPushTimeStamp": "2024-07-13T16:50:16.998Z",
+      "lastPushTimeStamp": "2024-07-18T17:01:36.582Z",
       "output": {
         "ApiName": "fortknoxrestapi",
         "RootUrl": "https://88farqqqyb.execute-api.us-east-1.amazonaws.com/dev",
         "ApiId": "88farqqqyb"
       },
-      "lastPushDirHash": "t2dd8epzB3O7Sir3azMd4NToSP4="
+      "lastPushDirHash": "6qnDoliuInF6ZC6u07T3c0CgcVM="
     }
   },
   "auth": {
@@ -122,7 +122,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/auth/fortknoxv1fd5af9b7-cloudformation-template.json",
         "logicalId": "authfortknoxv1fd5af9b7"
       },
-      "lastPushTimeStamp": "2024-07-13T16:49:53.719Z",
+      "lastPushTimeStamp": "2024-07-18T17:01:36.586Z",
       "output": {
         "UserPoolId": "us-east-1_VfQVnh7Bk",
         "AppClientIDWeb": "msa7qtv06lladaca1t5bumske",
@@ -132,7 +132,7 @@
         "IdentityPoolName": "fortknoxv1fd5af9b7_identitypool_fd5af9b7__dev",
         "UserPoolName": "fortknoxv1fd5af9b7_userpool_fd5af9b7"
       },
-      "lastPushDirHash": "bUIZOyoqESoBT7n+SWbE5pOTcd8="
+      "lastPushDirHash": "VvWYgnncTTLSzmQRdEzc5isxy6Q="
     }
   },
   "function": {
@@ -152,7 +152,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/retoolembedfunctin-cloudformation-template.json",
         "logicalId": "functionretoolembedfunctin"
       },
-      "lastPushTimeStamp": "2024-07-13T16:49:53.721Z",
+      "lastPushTimeStamp": "2024-07-18T17:01:36.589Z",
       "output": {
         "LambdaExecutionRoleArn": "arn:aws:iam::078918894010:role/fortknoxv1LambdaRolef4ce6183-dev",
         "Region": "us-east-1",
@@ -166,19 +166,19 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastBuildTimeStamp": "2024-07-13T16:50:09.585Z",
-      "lastBuildType": "PROD",
-      "lastPackageTimeStamp": "2024-07-13T16:50:12.280Z",
-      "distZipFilename": "openaiFunction-7a576f676e7275457a4c-build.zip",
+      "lastBuildTimeStamp": "2024-07-18T16:25:34.450Z",
+      "lastBuildType": "DEV",
+      "lastPackageTimeStamp": "2024-07-18T16:25:38.195Z",
+      "distZipFilename": "openaiFunction-633374683852324c474d-build.zip",
       "s3Bucket": {
         "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-        "s3Key": "amplify-builds/openaiFunction-7a576f676e7275457a4c-build.zip"
+        "s3Key": "amplify-builds/openaiFunction-633374683852324c474d-build.zip"
       },
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/openaiFunction-cloudformation-template.json",
         "logicalId": "functionopenaiFunction"
       },
-      "lastPushTimeStamp": "2024-07-13T16:50:16.958Z",
+      "lastPushTimeStamp": "2024-07-18T17:01:36.591Z",
       "output": {
         "LambdaExecutionRoleArn": "arn:aws:iam::078918894010:role/fortknoxv1LambdaRole350ab80a-dev",
         "Region": "us-east-1",
@@ -186,27 +186,68 @@
         "Name": "openaiFunction-dev",
         "LambdaExecutionRole": "fortknoxv1LambdaRole350ab80a-dev"
       },
-      "lastPushDirHash": "yXAdaf4uEcnryVkuZYs5GH83dbM=",
-      "lastDevBuildTimeStamp": "2024-07-09T16:31:49.094Z"
+      "lastPushDirHash": "V5CIY3o+z8ey6R0h3Q1YLJY3PNQ=",
+      "lastDevBuildTimeStamp": "2024-07-22T21:00:43.879Z"
     },
     "fortknoxpdfuploads": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
-      "lastDevBuildTimeStamp": "2024-07-12T02:10:22.981Z",
-      "lastBuildType": "PROD",
-      "lastBuildTimeStamp": "2024-07-13T16:49:58.846Z",
-      "lastPackageTimeStamp": "2024-07-13T16:50:03.740Z",
-      "distZipFilename": "fortknoxpdfuploads-74506a35725646673957-build.zip",
+      "lastDevBuildTimeStamp": "2024-07-23T21:30:22.438Z",
+      "lastBuildType": "DEV",
+      "lastBuildTimeStamp": "2024-07-18T17:00:08.706Z",
+      "lastPackageTimeStamp": "2024-07-18T17:00:28.664Z",
+      "distZipFilename": "fortknoxpdfuploads-6163454a5253766a3831-build.zip",
       "s3Bucket": {
         "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-        "s3Key": "amplify-builds/fortknoxpdfuploads-74506a35725646673957-build.zip"
+        "s3Key": "amplify-builds/fortknoxpdfuploads-6163454a5253766a3831-build.zip"
       },
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/fortknoxpdfuploads-cloudformation-template.json",
         "logicalId": "functionfortknoxpdfuploads"
       },
-      "lastPushTimeStamp": "2024-07-13T16:50:16.953Z"
+      "lastPushTimeStamp": "2024-07-18T17:01:37.214Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::078918894010:role/fortknoxv1LambdaRoled7003e21-dev",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:078918894010:function:fortknoxpdfuploads-dev",
+        "Name": "fortknoxpdfuploads-dev",
+        "LambdaExecutionRole": "fortknoxv1LambdaRoled7003e21-dev"
+      },
+      "lastPushDirHash": "bSZOXaIB0tQ7HR1Sg0G9ZcV6e58=",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "fortknoxv1fd5af9b7",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "storage",
+          "resourceName": "fortKnoxFileUpload",
+          "attributes": [
+            "BucketName"
+          ]
+        }
+      ]
+    }
+  },
+  "storage": {
+    "fortKnoxFileUpload": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "lastPushTimeStamp": "2024-07-18T17:01:36.596Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storagefortKnoxFileUpload"
+      },
+      "output": {
+        "BucketName": "fortknoxfileuploadbucketb0ab2-dev",
+        "Region": "us-east-1"
+      },
+      "lastPushDirHash": "FrjOn4wYGtHRYM67tjg+sfnxlB4="
     }
   }
 }

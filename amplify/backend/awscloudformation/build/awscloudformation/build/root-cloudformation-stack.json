@@ -217,7 +217,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/auth/fortknoxv1fd5af9b7-cloudformation-template.json",
         "Parameters": {
           "identityPoolName": "fortknoxv1fd5af9b7_identitypool_fd5af9b7",
-          "allowUnauthenticatedIdentities": false,
+          "allowUnauthenticatedIdentities": true,
           "resourceNameTruncated": "fortknfd5af9b7",
           "userPoolName": "fortknoxv1fd5af9b7_userpool_fd5af9b7",
           "autoVerifiedAttributes": "email",
@@ -282,7 +282,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/openaiFunction-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/openaiFunction-7a576f676e7275457a4c-build.zip",
+          "s3Key": "amplify-builds/openaiFunction-633374683852324c474d-build.zip",
           "env": "dev"
         }
       }
@@ -293,7 +293,52 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/fortknoxpdfuploads-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/fortknoxpdfuploads-74506a35725646673957-build.zip",
+          "s3Key": "amplify-builds/fortknoxpdfuploads-6163454a5253766a3831-build.zip",
+          "authfortknoxv1fd5af9b7UserPoolId": {
+            "Fn::GetAtt": [
+              "authfortknoxv1fd5af9b7",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "storagefortKnoxFileUploadBucketName": {
+            "Fn::GetAtt": [
+              "storagefortKnoxFileUpload",
+              "Outputs.BucketName"
+            ]
+          },
+          "env": "dev"
+        }
+      }
+    },
+    "storagefortKnoxFileUpload": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "Parameters": {
+          "bucketName": "fortknoxfileuploadbucket",
+          "selectedGuestPermissions": "s3:PutObject,s3:GetObject,s3:ListBucket",
+          "selectedAuthenticatedPermissions": "s3:PutObject,s3:GetObject,s3:ListBucket",
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "s3PrivatePolicy": "Private_policy_ee0c74ea",
+          "s3ProtectedPolicy": "Protected_policy_ee0c74ea",
+          "s3PublicPolicy": "Public_policy_ee0c74ea",
+          "s3ReadPolicy": "read_policy_ee0c74ea",
+          "s3UploadsPolicy": "Uploads_policy_ee0c74ea",
+          "authPolicyName": "s3_amplify_ee0c74ea",
+          "unauthPolicyName": "s3_amplify_ee0c74ea",
+          "AuthenticatedAllowList": "ALLOW",
+          "GuestAllowList": "ALLOW",
+          "s3PermissionsAuthenticatedPrivate": "s3:PutObject,s3:GetObject",
+          "s3PermissionsAuthenticatedProtected": "s3:PutObject,s3:GetObject",
+          "s3PermissionsAuthenticatedPublic": "s3:PutObject,s3:GetObject",
+          "s3PermissionsAuthenticatedUploads": "s3:PutObject",
+          "s3PermissionsGuestPublic": "s3:PutObject,s3:GetObject",
+          "s3PermissionsGuestUploads": "s3:PutObject",
           "env": "dev"
         }
       }

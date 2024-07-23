@@ -10,7 +10,14 @@
     },
     "/wires": {
       "name": "/wires",
-      "lambdaFunction": "openaiFunction",
+      "lambdaFunction": "fortknoxpdfuploads",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/invoicereader": {
+      "name": "/invoicereader",
+      "lambdaFunction": "fortknoxpdfuploads",
       "permissions": {
         "setting": "open"
       }

@@ -44,5 +44,11 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     }
+  },
+  "storage": {
+    "fortKnoxFileUpload": {
+      "BucketName": "string",
+      "Region": "string"
+    }
   }
 }

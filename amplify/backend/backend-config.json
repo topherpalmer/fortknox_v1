@@ -90,6 +90,22 @@
   "function": {
     "fortknoxpdfuploads": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "fortknoxv1fd5af9b7"
+        },
+        {
+          "attributes": [
+            "BucketName"
+          ],
+          "category": "storage",
+          "resourceName": "fortKnoxFileUpload"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -105,6 +121,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_fortknoxpdfuploads_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fortknoxpdfuploads"
+        }
+      ]
+    },
+    "AMPLIFY_function_fortknoxpdfuploads_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "fortknoxpdfuploads"
+        }
+      ]
+    },
     "AMPLIFY_function_openaiFunction_deploymentBucketName": {
       "usedBy": [
         {
@@ -136,6 +168,13 @@
           "resourceName": "retoolembedfunctin"
         }
       ]
+    }
+  },
+  "storage": {
+    "fortKnoxFileUpload": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
     }
   }
 }
