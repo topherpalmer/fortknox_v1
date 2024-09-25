@@ -22,11 +22,11 @@
         },
         "openaiFunction": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/openaiFunction-633374683852324c474d-build.zip"
+          "s3Key": "amplify-builds/openaiFunction-6f6f415034544d5a6b50-build.zip"
         },
         "fortknoxpdfuploads": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/fortknoxpdfuploads-6163454a5253766a3831-build.zip"
+          "s3Key": "amplify-builds/fortknoxpdfuploads-7074726a53786c34776e-build.zip"
         }
       },
       "api": {

@@ -110,6 +110,53 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain"
     },
+    "DeploymentBucketBlockHTTP": {
+      "Type": "AWS::S3::BucketPolicy",
+      "Properties": {
+        "Bucket": {
+          "Ref": "DeploymentBucketName"
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:*",
+              "Effect": "Deny",
+              "Principal": "*",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "DeploymentBucketName"
+                      },
+                      "/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:s3:::",
+                      {
+                        "Ref": "DeploymentBucketName"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": false
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
     "AuthRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -207,6 +254,18 @@
               "Outputs.Arn"
             ]
           },
+          "functionopenaiFunctionName": {
+            "Fn::GetAtt": [
+              "functionopenaiFunction",
+              "Outputs.Name"
+            ]
+          },
+          "functionopenaiFunctionArn": {
+            "Fn::GetAtt": [
+              "functionopenaiFunction",
+              "Outputs.Arn"
+            ]
+          },
           "env": "dev"
         }
       }
@@ -282,7 +341,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/openaiFunction-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/openaiFunction-633374683852324c474d-build.zip",
+          "s3Key": "amplify-builds/openaiFunction-6f6f415034544d5a6b50-build.zip",
           "env": "dev"
         }
       }
@@ -293,7 +352,7 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-fortknoxv1-dev-b0ab2-deployment/amplify-cfn-templates/function/fortknoxpdfuploads-cloudformation-template.json",
         "Parameters": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/fortknoxpdfuploads-6163454a5253766a3831-build.zip",
+          "s3Key": "amplify-builds/fortknoxpdfuploads-7074726a53786c34776e-build.zip",
           "authfortknoxv1fd5af9b7UserPoolId": {
             "Fn::GetAtt": [
               "authfortknoxv1fd5af9b7",

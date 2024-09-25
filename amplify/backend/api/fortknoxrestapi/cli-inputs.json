@@ -21,6 +21,13 @@
       "permissions": {
         "setting": "open"
       }
+    },
+    "/wires/fraudstatus": {
+      "name": "/wires/fraudstatus",
+      "lambdaFunction": "openaiFunction",
+      "permissions": {
+        "setting": "open"
+      }
     }
   }
 }

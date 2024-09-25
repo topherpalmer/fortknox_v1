@@ -63,13 +63,13 @@ app.get('/item/*', function(req, res) {
 const { getObject} = require('@aws-sdk/client-s3');
 const AWS = require('aws-sdk');
 const fs = require('fs');
-const { pdfjsLib, getDocument, extractText} =  require('pdf.js-extract');
 //const pdfToText =  require('react-pdftotext');
 const PDFParser = require('pdf2json'); 
 //import pdf from "pdf-parse";
 app.post('/invoicereader', function(req, res) {
 
       try {
+        const fileName= req.body.fileName;
 
             console.log("entered try block in /invoicereader");
             AWS.config.update({
@@ -86,7 +86,7 @@ app.post('/invoicereader', function(req, res) {
 
             let params = {
               Bucket : bucketName,
-              Key : 'Invoice_Test.pdf'//'Invoice21549.pdf''ContraBusinessPlanDeck.pdf'
+              Key : fileName//'Invoice_Test.pdf'//'Invoice21549.pdf''ContraBusinessPlanDeck.pdf'
             };
 
             console.log("s3.getObject");
@@ -130,13 +130,13 @@ app.post('/invoicereader', function(req, res) {
                             role: 'system', 
                             content: 'You are my assistant and you are knowledgable about wire fraud and whether a bank routing number and account number is legitimate or not. I am looking to verify if this bank routing number is legitimate and whether it has been associated with wire fraud. If a bank routing number and bank account number is not legitimate you will rate it a 9 out of 10 on a risk level scale.  If the bank routing number and bank account number is legitimate, it will be rated a 0 out of 10 on a risk level. '
                           },
-                          { 
+                          {
                             role: 'user', 
-                            content: 'Can you identify the key elements for red flags that would indicate this may be a hacker wanting to commit wire fraud.  Can you then assess the risk of this being wire fraud on a scale of 1 to 10.'
+                            content: 'You are my assistant and you are knowledgable about wire fraud and whether an address is for a business or a residence. I am looking to verify if this email address is associated with wire fraud or if an address is for a business or a residence. For guidance, If the business address exists then the risk level is 3 out of 10.  If it does not exist it is a risk level of 9 out of 10. Average all the determined risk levels such as business name, amount due, address, zip code, state, city, routing number, account number, SWIFT Code, phone number, email the same way and then estimate an overall risk level for the transaction out of a scale of 10.'
                           },
                           {
                             role: 'user',
-                            content: 'And then at the end of your response put the key element values of the amount due, address, routing number, account number, SWIFT Code, phone number, contact information in JSON format.'
+                            content: 'And then can put the key element values of the business name, amount due, address, zip code, state, city, routing number, account number, SWIFT Code, phone number, email in JSON format and label it wireData.'
                           },
                           { 
                             role: 'user', 
@@ -160,17 +160,17 @@ app.post('/invoicereader', function(req, res) {
                                 temperature: 0.1
                               });  
                     
-                              console.log(response);
+                              //console.log(response);
                               const response_text = response.choices[0].message.content.trim();
-                              console.log(response_text);
+                              //console.log(response_text);
                     
                               const aiMessage = {role: 'system', content: response_text};
-                              console.log(aiMessage);
+                              //console.log(aiMessage);
                     
                               previousMessages.push(aiMessage);
                               console.log(previousMessages)
                     
-                              res.json({success: 'newVendorWire post call succeed!', url: req.url, openAIMessage: response_text});
+                              res.json({success: 'newVendorWire post call succeed!', url: req.url, openAIMessage: response_text, previousMessages:previousMessages});
   
                     
   
