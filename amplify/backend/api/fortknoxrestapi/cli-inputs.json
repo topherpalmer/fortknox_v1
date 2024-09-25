@@ -10,6 +10,20 @@
     },
     "/wires": {
       "name": "/wires",
+      "lambdaFunction": "fortknoxpdfuploads",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/invoicereader": {
+      "name": "/invoicereader",
+      "lambdaFunction": "fortknoxpdfuploads",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/wires/fraudstatus": {
+      "name": "/wires/fraudstatus",
       "lambdaFunction": "openaiFunction",
       "permissions": {
         "setting": "open"

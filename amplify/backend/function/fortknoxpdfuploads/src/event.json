@@ -1,0 +1,11 @@
+{
+  "httpMethod": "POST",
+  "path": "/invoicereader",
+  "queryStringParameters": {
+    "limit": "10"
+  },
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": "{\"fileName\":\"PalmerChristopherHeather-TaxPlanning-September2024Invoice-2513440_-c.pdf\"}"
+}

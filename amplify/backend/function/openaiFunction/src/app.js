@@ -155,7 +155,80 @@ app.post('/wires', function(req, res) {
           previousMessages.push(aiMessage);
           console.log(previousMessages)
 
-          res.json({success: 'newVendorWire post call succeed!', url: req.url, openAIMessage: response_text});
+          res.json({success: 'newVendorWire post call succeed!', url: req.url, openAIMessage: response_text, previousMessages:previousMessages});
+
+        }
+        catch(err){
+          console.error(err);
+          res.json({success: 'post call for newVendorWire failed!', url: req.url, body: err})
+
+        } 
+      }
+
+      chatGptCalling(previousMessages);
+      console.log(previousMessages);
+
+  } catch (error) {
+      console.log(error)
+      res.json({success: 'post call for newVendorWire failed!', url: req.url, body: error})
+
+  }
+
+});
+
+app.post('/wires/fraudstatus', function(req, res) {
+
+  const body = req.body;
+
+  try {
+    console.log(req.body);
+    const newMessage= req.body.newMessage;
+    console.log(newMessage);
+    var previousMessages= req.body.previousMessages;
+    const fraudStatus= req.body.fraudStatus;
+    const wireDatainJson= req.body.wireDatainJson;
+
+
+    if(fraudStatus == "LEGIT") {
+      previousMessages.push({
+        role: 'user', 
+        content: 'Can you remember that this data has been determined to be a legitimate wire transfer request. ' + wireDatainJson
+      })    }
+    else  {
+      
+        previousMessages.push({
+            role: 'user', 
+            content: 'Can you remember that this data has been determined to be a fraudulant wire transfer request. ' + wireDatainJson
+          })
+    } 
+ 
+    const chatGptCalling = async (previousMessages) => {
+      try{
+
+          console.log("Calling chatGptCalling");
+
+          const { Configuration, OpenAIApi, OpenAI } = require('openai');
+          let openai;
+          const instructions = ``;
+          openai = new OpenAI({ apiKey:process.env.REACT_APP_OPENAI_KEY });
+
+          console.log("Calling chatgpt");
+          const response = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo",
+            messages: previousMessages
+          });
+
+          console.log(response);
+          const response_text = response.choices[0].message.content.trim();
+          console.log(response_text);
+
+          const aiMessage = {role: 'system', content: response_text};
+          console.log(aiMessage);
+
+          previousMessages.push(aiMessage);
+          console.log(previousMessages)
+
+          res.json({success: 'newVendorWire post call succeed!', url: req.url, openAIMessage: response_text, previousMessages:previousMessages});
 
         }
         catch(err){

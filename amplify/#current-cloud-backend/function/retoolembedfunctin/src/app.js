@@ -50,7 +50,7 @@ app.post('/embed', function(req, res) {
 
   
   let data = JSON.stringify({
-    "landingPageUuid": "6b79c648-0bce-11ef-9ee7-8b6ef326de56",
+    "landingPageUuid": "c64a213a-31b2-11ef-bfa2-fff24029a9a6",
     "groupIds": [
       3117369
     ],

@@ -1,0 +1,15 @@
+{
+  "resourceName": "fortKnoxFileUpload",
+  "policyUUID": "ee0c74ea",
+  "bucketName": "fortknoxfileuploadbucket",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "groupAccess": {}
+}

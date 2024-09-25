@@ -18,16 +18,23 @@
       "function": {
         "retoolembedfunctin": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/retoolembedfunctin-7376794f6f577a2b7541-build.zip"
+          "s3Key": "amplify-builds/retoolembedfunctin-4555784f714f63445778-build.zip"
         },
         "openaiFunction": {
           "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
-          "s3Key": "amplify-builds/openaiFunction-72764344516f4248364f-build.zip"
+          "s3Key": "amplify-builds/openaiFunction-6f6f415034544d5a6b50-build.zip"
+        },
+        "fortknoxpdfuploads": {
+          "deploymentBucketName": "amplify-fortknoxv1-dev-b0ab2-deployment",
+          "s3Key": "amplify-builds/fortknoxpdfuploads-7074726a53786c34776e-build.zip"
         }
       },
       "api": {
         "fortknoxv1": {},
         "fortknoxrestapi": {}
+      },
+      "storage": {
+        "fortKnoxFileUpload": {}
       }
     }
   }

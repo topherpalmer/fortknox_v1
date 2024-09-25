@@ -1,5 +1,5 @@
 {
-  "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.12.1\",\"stackType\":\"auth-Cognito\",\"metadata\":{}}",
+  "Description": "Amplify Cognito Stack for AWS Amplify CLI",
   "AWSTemplateFormatVersion": "2010-09-09",
   "Parameters": {
     "env": {
@@ -160,12 +160,6 @@
             "email"
           ]
         },
-        "UsernameAttributes": {
-          "Ref": "usernameAttributes"
-        },
-        "UsernameConfiguration": {
-          "CaseSensitive": false
-        },
         "UserPoolName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
@@ -187,21 +181,27 @@
               ]
             }
           ]
+        },
+        "UsernameAttributes": {
+          "Ref": "usernameAttributes"
+        },
+        "UsernameConfiguration": {
+          "CaseSensitive": false
         }
       }
     },
     "UserPoolClientWeb": {
       "Type": "AWS::Cognito::UserPoolClient",
       "Properties": {
-        "UserPoolId": {
-          "Ref": "UserPool"
-        },
         "ClientName": "fortknfd5af9b7_app_clientWeb",
         "RefreshTokenValidity": {
           "Ref": "userpoolClientRefreshTokenValidity"
         },
         "TokenValidityUnits": {
           "RefreshToken": "days"
+        },
+        "UserPoolId": {
+          "Ref": "UserPool"
         }
       },
       "DependsOn": [
@@ -211,9 +211,6 @@
     "UserPoolClient": {
       "Type": "AWS::Cognito::UserPoolClient",
       "Properties": {
-        "UserPoolId": {
-          "Ref": "UserPool"
-        },
         "ClientName": "fortknfd5af9b7_app_client",
         "GenerateSecret": {
           "Ref": "userpoolClientGenerateSecret"
@@ -223,6 +220,9 @@
         },
         "TokenValidityUnits": {
           "RefreshToken": "days"
+        },
+        "UserPoolId": {
+          "Ref": "UserPool"
         }
       },
       "DependsOn": [

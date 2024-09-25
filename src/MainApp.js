@@ -15,6 +15,7 @@ import React, { useState, useEffect } from 'react';
 import { post, get } from 'aws-amplify/api';
 import { Amplify } from "aws-amplify";
 import { Row, Container } from "reactstrap";
+import { signIn, signOut, getCurrentUser } from '@aws-amplify/auth';
 
 
 const image = {uri: '/images/MyFortKnox_FlyerDraft.png'};
@@ -25,8 +26,6 @@ function App({signOut}) {
   const [retoolEmbedUrl, setRetoolEmbedUrl] = useState("");
 
   async function callEmbed()  {    
-    //{"success":"embed post call succeed!","url":"/embed","body":{"embedUrl":"https://retooldev.myfortknox.co/embed-redirect?nonce=e7ac0370-caee-4988-b22c-e6d45957972f&destination=%2Fembedded%2Fauthed%2F6b79c648-0bce-11ef-9ee7-8b6ef326de56"}}
-
 
     try { 
  
@@ -54,56 +53,32 @@ function App({signOut}) {
   useEffect(() => {
     callEmbed()
   }, [])
+
+  //AMPLIFY
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Get the current authenticated user
+    getCurrentUser()
+      .then(userData => {
+        setUser(userData);  // Save the user data to state
+      })
+      .catch(err => console.log('Error getting user: ', err));
+  }, []);
+
   return (
     retoolEmbedUrl && (
-
-      <div class="parent-container" style={{height: 1000}}>
-           <Retool url={retoolEmbedUrl} frameborder="0" allowfullscreen class="child-container"/>
+ 
+      <div class="parent-container" style={{ height: 1000 }}>
+        <Retool url={retoolEmbedUrl} frameborder="0" allowfullscreen class="child-container" data={{ userName: user.username}} onData={() => {}} />
       </div>
-      // <Container class="parent-container">
-      //   <Retool url={retoolEmbedUrl} class="child-container"/>
-      // </Container>
+ 
+
     )
   );   
  
-    // return (
-    //   <View className="App">
-    //     <Card>
-    //       <Image src={logo} className="App-logo" alt="logo" />
-    //       <Heading level={1}>We now have Auth!</Heading>
-    //     </Card>
-    //     <Button onClick={signOut}>Sign Out</Button>
-    //   </View>
-    // );
 }
 
 export default withAuthenticator(App)
 
-/*import React, { Component } from "react";
-
-const image = {uri: '/images/MyFortKnox_FlyerDraft.png'};
-
-
-class App extends Component {
-	render() {
-		const myStyle = {
-			backgroundImage: `url(${
-				process.env.PUBLIC_URL + "/images/MyFortKnox_FlyerDraft.png"
-			})`,
-			height: "100vh",
-			marginTop: "-70px",
-			fontSize: "50px",
-			backgroundSize: "100%",
-			backgroundRepeat: "no-repeat",
-      backgroundColor
-		};
-		return (
-			<div style={myStyle}>
-				<h1>GeeksForGeeks</h1>
-			</div>
-		);
-	}
-}  
-
-export default App;*/
  
